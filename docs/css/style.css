@@ -688,97 +688,127 @@ a.button {
     --chaos-r: calc(15deg * (1 - var(--int-y, 0.5)));
 }
 
-/* --- The Synthesis: Composition (The Grand Finale) --- */
+/* --- The Synthesis: Composition (The 10/10 Rework) --- */
+/* The Synthesis Engine: A Tunable System of Order & Entropy */
+
 .composition-composition .demo-canvas {
     background: #000;
     position: relative;
-    perspective: 800px;
+    perspective: 1000px;
     overflow: hidden;
+    --sweet-x: 0.618;
+    --entropy: var(--int-x, 0.5);
+    --energy: var(--int-y, 0.5);
+    /* Deviation from the Golden Mean */
+    --dev: calc(var(--entropy) - var(--sweet-x));
+    --abs-dev: max(var(--dev), calc(var(--dev) * -1));
 }
 
-/* Layer 1: Structure (The Grid) */
-@keyframes drawGrid {
-    0% { opacity: 0; transform: scale(0.8); }
-    10% { opacity: 1; transform: scale(1); }
-    25% { opacity: 1; border-color: rgba(255,255,255,0.3); }
-    90% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-.layer-structure {
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 300px; height: 300px;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(255,255,255,0.1);
-    z-index: 10;
-    animation: drawGrid 20s ease-in-out infinite;
-    pointer-events: none;
-}
-.layer-structure::before {
-    content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 61.8%;
-    border-left: 1px solid rgba(255,255,255,0.1);
-}
-.layer-structure::after {
-    content: ''; position: absolute; top: 61.8%; right: 0; bottom: 0; left: 61.8%;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Layer 2: Space (The Perspective) */
-@keyframes openSpace {
-    0%, 20% { opacity: 0; transform: rotateX(0deg); }
-    30% { opacity: 1; transform: rotateX(60deg) translateY(0); }
-    80% { opacity: 1; transform: rotateX(60deg) translateY(50px); }
-    100% { opacity: 0; transform: rotateX(0deg); }
-}
-
+/* Layer 1: The Atmosphere (Energy Axis - Y) */
+/* Replaces .layer-space */
 .layer-space {
     position: absolute;
-    width: 200%; height: 200%;
-    left: -50%; top: -50%;
-    background: linear-gradient(0deg, transparent 49%, rgba(74, 91, 124, 0.2) 49%, rgba(74, 91, 124, 0.2) 51%, transparent 51%),
-                linear-gradient(90deg, transparent 49%, rgba(74, 91, 124, 0.2) 49%, rgba(74, 91, 124, 0.2) 51%, transparent 51%);
-    background-size: 50px 50px;
-    transform-origin: 50% 60%;
-    animation: openSpace 20s ease-in-out infinite;
-    z-index: 1;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    z-index: 0;
+    background: radial-gradient(
+        circle at 50% calc(100% - var(--energy) * 80%), 
+        hsl(210, 50%, calc(10% + var(--energy) * 40%)) 0%, 
+        #000 70%
+    );
+    transition: background 0.1s;
 }
 
 .horizon {
+    display: none; /* Removing the literal horizon */
+}
+
+/* Layer 2: The Grid (Order vs Entropy - X) */
+/* Replaces .layer-structure */
+.layer-structure {
     position: absolute;
-    top: 40%; left: 0; width: 100%; height: 2px;
-    background: var(--accent-color);
-    box-shadow: 0 0 20px var(--accent-color);
-    opacity: 0;
-    animation: openSpace 20s ease-in-out infinite; /* Sync with space */
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    /* Grid fades out as Entropy (X) increases */
+    opacity: calc(1 - var(--entropy) * 0.8);
+    transition: opacity 0.1s;
+}
+.layer-structure::before { /* Golden Section Vertical */
+    content: ''; position: absolute; top: 0; bottom: 0; left: 61.8%;
+    border-left: 1px solid rgba(255,255,255,0.2);
+}
+.layer-structure::after { /* Golden Section Horizontal */
+    content: ''; position: absolute; top: 61.8%; right: 0; left: 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Layer 3: Subject (The Form & Gestalt) */
-@keyframes manifestSubject {
-    0%, 35% { opacity: 0; transform: translate(-50%, -50%) scale(0); filter: blur(20px); }
-    45% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: blur(0px); }
-    55% { border-radius: 50%; background: var(--accent-color); }
-    65% { border-radius: 0%; transform: translate(-50%, -50%) rotate(45deg); background: #fff; mix-blend-mode: difference; }
-    80% { transform: translate(-50%, -50%) rotate(45deg) scale(1.5); opacity: 0; }
-    100% { opacity: 0; }
-}
-
+/* Layer 3: The Fragments (The Search for Synthesis) */
+/* Replaces .layer-subject */
 .layer-subject {
     position: absolute;
     top: 50%; left: 50%;
-    width: 100px; height: 100px;
-    background: #fff;
-    transform: translate(-50%, -50%);
+    width: 0; height: 0; /* Centered anchor */
     z-index: 20;
-    animation: manifestSubject 20s ease-in-out infinite;
 }
 
-/* Interaction for Synthesis */
+/* Fragment A: The Thesis (Geometry/Logic) */
+.layer-subject::before {
+    content: '';
+    position: absolute;
+    width: 150px; height: 150px;
+    border: 2px solid #fff;
+    top: -75px; left: -75px;
+    /* Moves LEFT based on deviation. Aligns at 0. */
+    transform: 
+        translate(calc(var(--dev) * -300px), calc(var(--dev) * -100px)) 
+        rotate(calc(var(--dev) * -45deg));
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Fragment B: The Antithesis (Chaos/Emotion) */
+.layer-subject::after {
+    content: '';
+    position: absolute;
+    width: 150px; height: 150px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    top: -75px; left: -75px;
+    mix-blend-mode: exclusion;
+    opacity: 0.8;
+    /* Moves RIGHT based on deviation. Aligns at 0. */
+    transform: 
+        translate(calc(var(--dev) * 300px), calc(var(--dev) * 100px)) 
+        rotate(calc(var(--dev) * 90deg))
+        scale(calc(1 - var(--abs-dev) * 0.5)); /* Shrinks when far apart */
+    transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Visual "Lock-In" Bloom */
+/* We create a pseudo-element on the parent canvas that glows when near the sweet spot */
+.composition-composition .demo-canvas::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, transparent 70%);
+    opacity: calc(1 - var(--abs-dev) * 10); /* Only visible when dev is near 0 */
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 30;
+}
+
+/* Interaction Overrides */
 .js-active .composition-composition .demo-canvas {
-    perspective: calc(200px + var(--int-y, 0.5) * 1000px);
+    perspective: 1000px; /* Reset perspective interaction */
 }
 .js-active .layer-subject {
-    transform: translate(calc(-50% + (var(--int-x, 0.5) - 0.5) * 200px), -50%);
+    transform: none; /* Reset simple translation */
 }
 
 /* --- Interaction Overrides (Enabled by interaction.js) --- */
