@@ -116,48 +116,46 @@ footer {
     flex-shrink: 0;
 }
 
-/* Home Page - Clean Gallery Wall */
+/* Home Page - Clean Gallery Wall (Compact 100vh) */
 .hero {
     text-align: center;
-    margin-bottom: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Ensure it doesn't overflow */
+    overflow: hidden; 
 }
 
 .hero h2 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem; /* Reduced from 3rem */
+    margin-bottom: 0.25rem;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.1rem; /* Reduced from 1.25rem */
     color: var(--muted-text);
+    margin-bottom: 2rem; /* Reduced from 3rem */
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem; /* Reduced from 3rem */
     max-width: 900px;
-    margin: 0 auto 3rem auto;
+    margin: 0 auto 1.5rem auto; /* Reduced bottom margin */
     text-align: left;
 }
 
-.collection {
-    /* Removed card styling for clutter-free look */
-    display: flex;
-    flex-direction: column;
-}
-
 .collection h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.25rem; /* Reduced from 1.5rem */
+    margin-bottom: 0.1rem;
     color: var(--text-color);
 }
 
 .collection p {
-    color: var(--muted-text);
-    margin-bottom: 1rem;
-    font-style: italic;
-    font-size: 1rem;
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    font-size: 0.9rem; /* Reduced from 1rem */
 }
 
 .link-grid {
@@ -166,65 +164,40 @@ footer {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem; /* Columnar feel */
-}
-
-.link-grid li {
-    margin: 0;
+    gap: 0.25rem 0.5rem; /* Tighter gap */
 }
 
 .link-grid a {
     display: inline-block;
-    padding: 0.2rem 0;
-    background: transparent; /* Clean text links */
+    padding: 0.1rem 0; /* Minimal padding */
+    background: transparent;
     color: var(--text-color);
-    border-radius: 0;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller */
     font-weight: 500;
     border-bottom: 1px solid transparent;
-}
-
-.link-grid a:hover {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
-    background: transparent;
-    transform: none;
 }
 
 .composition-section {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-    padding-top: 2rem;
+    padding-top: 1.5rem; /* Reduced from 2rem */
     border-top: 1px solid var(--border-color);
 }
 
 .composition-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.1rem;
 }
 
 .composition-section p {
-    color: var(--muted-text);
-    margin-bottom: 1.5rem;
-    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 a.button {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--text-color);
-    color: #fff;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.2s;
-}
-
-a.button:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(179, 137, 44, 0.3);
+    padding: 0.6rem 1.5rem; /* Slightly smaller button */
+    font-size: 0.95rem;
 }
 
 /* Detail Pages */
