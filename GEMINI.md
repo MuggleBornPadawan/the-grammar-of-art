@@ -1,4 +1,4 @@
-# Art Fundamentals Web App
+# The Grammar of Art Web App
 
 ## Project Overview
 
@@ -13,11 +13,22 @@ This is a Clojure-based web application designed to teach the fundamental elemen
 *   **Templating:** Hiccup
 *   **Styling:** Custom CSS (No preprocessors)
 
+## Design Philosophy
+
+The project uses a **"Modern Gallery"** aesthetic:
+*   **Typography:** `Merriweather` (Serif) for headers, `Inter` (Sans-Serif) for body.
+*   **Palette:**
+    *   **Background:** Soft White (`#fdfdfd`)
+    *   **Text:** Deep Blue (`#061735`)
+    *   **Accents:** Gold (`#B3892C`)
+*   **Layout:** "Compact Viewport" design. On desktop, content is split 35/65 (Text/Image) and fitted to `100vh` to eliminate vertical scrolling. Mobile falls back to a vertical scroll layout.
+*   **Visuals:** All art demonstrations are created using pure CSS/CSS Art techniques, adhering to the project's color palette.
+
 ## Architecture
 
 The application logic resides in the `art-web` directory.
 *   **Dynamic Serving:** `art-web.handler` defines routes for development, allowing for fast iteration.
-*   **Static Generation:** `art-web.static` leverages the same views to generate static HTML files, handling URL prefixes for GitHub Pages (e.g., `/art/`).
+*   **Static Generation:** `art-web.static` leverages the same views to generate static HTML files, handling URL prefixes for GitHub Pages (e.g., `/art/`) and copying assets (CSS/Images).
 *   **Content/Views:** `art-web.views` contains all textual content and HTML structure. It uses a dynamic `*base-url*` var to adapt links for different environments.
 
 ## Directory Structure
@@ -28,8 +39,9 @@ The application logic resides in the `art-web` directory.
         *   `views.clj`: Hiccup templates and data definitions for Art Elements/Principles.
         *   `static.clj`: Script to generate the static site.
     *   `resources/public/css/`: CSS files.
+    *   `resources/public/img/`: Image assets (e.g., `glider.png`).
     *   `project.clj`: Leiningen configuration.
-*   `docs/`: The generated static website (HTML/CSS). This folder is served by GitHub Pages.
+*   `docs/`: The generated static website (HTML/CSS/IMG). This folder is served by GitHub Pages.
 
 ## Building and Running
 
@@ -59,6 +71,6 @@ The `docs/` folder is configured to be served by GitHub Pages. To deploy updates
 
 ## Development Conventions
 
-*   **Visual Demos:** The specific visual representations of art concepts (e.g., a color spectrum, a balanced composition) are implemented primarily through CSS classes defined in `style.css` and applied in `views.clj`.
+*   **Visual Demos:** The specific visual representations of art concepts are implemented primarily through CSS classes defined in `style.css` and applied in `views.clj`.
 *   **Base URL:** When adding new links or assets in `views.clj`, wrap paths with the `(url ...)` function to ensure they resolve correctly in both development and production.
-*   **Content:** The data for "Elements" and "Principles" is defined as Clojure maps in `views.clj`. Update these structures to change text content.
+*   **Assets:** Place images in `resources/public/img`. The build script copies them to `docs/img`.

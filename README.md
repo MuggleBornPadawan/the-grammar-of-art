@@ -1,8 +1,8 @@
-# Art Fundamentals
+# The Grammar of Art
 
-An educational web application covering the fundamental **Elements of Art** and **Principles of Composition**. 
+An educational web application covering the fundamental **Elements of Art** and **Principles of Composition**.
 
-Built with **Clojure**, this project serves as both a dynamic educational tool and a static site generator for hosting on GitHub Pages.
+Built with **Clojure**, this project serves as both a dynamic educational tool and a static site generator for hosting on GitHub Pages. It features a "Modern Gallery" aesthetic designed for maximum readability and visual impact.
 
 ## 🎨 Content Covered
 
@@ -16,9 +16,11 @@ Methods for organizing the elements:
 
 ## 🚀 Features
 *   **Dynamic Development:** Real-time rendering using Clojure/Ring.
-*   **Visual Demos:** Each concept includes a visual demonstration implemented purely with CSS.
+*   **CSS Art Visualizations:** Each concept includes a pure CSS visual demonstration.
+*   **"Modern Gallery" Theme:** High-readability layout with a Soft White background, Deep Blue text, and Gold accents.
+*   **Compact Viewport UI:** Designed to fit content on a single screen without scrolling on desktop.
 *   **Static Site Generation:** Automated script to compile views into optimized HTML for GitHub Pages.
-*   **Responsive Design:** Mobile-friendly layout.
+*   **Responsive Design:** Mobile-friendly fallback layout.
 
 ## 🛠 Tech Stack
 *   **Language:** Clojure

@@ -28,14 +28,14 @@
 (defn layout [title & content]
   (html5
    [:head
-    [:title (str title " - Art Fundamentals")]
+    [:title (str title " - The Grammar of Art")]
     (include-css (url "/css/style.css"))
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]]
    [:body
     [:header
      [:div.logo-container
       [:img.logo {:src (url "/img/glider.png") :alt "Glider Pattern"}]
-      [:h1 [:a {:href (url "/")} "Art Fundamentals"]]]
+      [:h1 [:a {:href (url "/")} "The Grammar of Art"]]]
      [:nav
       [:ul
        [:li [:span "Elements: "]
@@ -46,7 +46,7 @@
           [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)])]]]]
     [:main content]
     [:footer
-     [:p "Art Fundamentals - Built with Clojure"]]]))
+     [:p "The Grammar of Art - Built with Clojure"]]]))
 
 (defn home-page []
   (layout "Home"
