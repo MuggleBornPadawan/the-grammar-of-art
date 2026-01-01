@@ -33,7 +33,9 @@
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]]
    [:body
     [:header
-     [:h1 [:a {:href (url "/")} "Art Fundamentals"]]
+     [:div.logo-container
+      [:img.logo {:src (url "/img/glider.png") :alt "Glider Pattern"}]
+      [:h1 [:a {:href (url "/")} "Art Fundamentals"]]]
      [:nav
       [:ul
        [:li [:span "Elements: "]

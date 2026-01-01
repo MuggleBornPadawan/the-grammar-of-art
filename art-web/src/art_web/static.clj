@@ -41,5 +41,20 @@
               (io/copy file dest-file)
               (println "Copied CSS:" (.getName file))))))
       (println "Warning: CSS directory not found.")))
+
+  ;; Copy Images
+  (let [img-source (io/file "resources/public/img")
+        img-dest (io/file "../docs/img")]
+    (if (.exists img-source)
+      (do
+        (.mkdirs img-dest)
+        (doseq [file (file-seq img-source)]
+          (when (.isFile file)
+            (let [rel-path (subs (.getPath file) (count (.getPath img-source)))
+                  dest-file (io/file img-dest (if (.startsWith rel-path "/") (subs rel-path 1) rel-path))]
+              (io/make-parents dest-file)
+              (io/copy file dest-file)
+              (println "Copied Image:" (.getName file))))))
+      (println "Warning: Image directory not found.")))
   
   (println "Static site generation complete!"))
