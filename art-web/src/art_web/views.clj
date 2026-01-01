@@ -41,12 +41,6 @@
       [:h1 [:a {:href (url "/")} "The Grammar of Art"]]]
      [:nav
       [:ul
-       [:li [:span "Elements: "]
-        (for [e elements]
-          [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)])]
-       [:li [:span "Principles: "]
-        (for [p principles]
-          [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)])]
        [:li [:a.special {:href (url "/composition.html")} "Composition"]]]]]
     [:main content]
     [:footer
@@ -61,28 +55,37 @@
             [:div.card
              [:h3 "The Elements"]
              [:p "The tools to make art."]
-             [:ul (for [e elements] [:li [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)]])]]
+             [:ul.link-grid (for [e elements] [:li [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)]])]]
             [:div.card
              [:h3 "The Principles"]
              [:p "How to use the tools."]
-             [:ul (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
+             [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
             [:div.card.composition-card
              [:h3 "Composition"]
              [:p "The Synthesis."]
-             [:ul [:li [:a {:href (url "/composition.html")} "View the Masterpiece"]]]]]]))
+             [:ul.link-grid [:li [:a {:href (url "/composition.html")} "View the Masterpiece"]]]]]]))
 
 (defn detail-page [type id]
   (let [items (cond 
                 (= type "element") elements 
                 (= type "principle") principles
                 :else [composition])
-        item (first (filter #(= (:id %) id) items))]
+        idx (first (keep-indexed #(when (= (:id %2) id) %1) items))
+        item (nth items idx)
+        prev-item (when (pos? idx) (nth items (dec idx)))
+        next-item (when (< idx (dec (count items))) (nth items (inc idx)))]
     (if item
       (layout (:title item)
               [:div.detail-container {:class (str type "-" id)}
                [:div.text-content
                 [:h2 (:title item)]
-                [:p.definition (:desc item)]]
+                [:p.definition (:desc item)]
+                [:div.page-nav
+                 (if prev-item
+                   [:a.prev {:href (url (str "/" type "/" (:id prev-item) ".html"))} (str "← " (:title prev-item))]
+                   [:span]) ;; spacer
+                 (if next-item
+                   [:a.next {:href (url (str "/" type "/" (:id next-item) ".html"))} (str (:title next-item) " →")])]]
                [:div.visual-demo
                 [:div.demo-canvas]]])
       (layout "Not Found" [:h2 "Topic not found."]))))

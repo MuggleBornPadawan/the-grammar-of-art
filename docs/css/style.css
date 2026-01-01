@@ -47,11 +47,11 @@ a:hover {
     color: #061735;
 }
 
-/* Header */
+/* Header - Uncluttered */
 header {
     background: #fff;
     border-bottom: 1px solid var(--border-color);
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     margin: 0;
 }
 
@@ -74,7 +74,7 @@ header {
 }
 
 header h1 a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--text-color);
     font-family: var(--font-serif);
     font-weight: 900;
@@ -85,34 +85,20 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 1.5rem;
 }
 
-nav li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-nav span {
-    font-size: 0.75rem;
-    font-weight: bold;
+nav a.special {
+    border: 1px solid var(--accent-color);
     color: var(--accent-color);
-    text-transform: uppercase;
-    display: none;
-}
-@media (min-width: 900px) { nav span { display: inline; } }
-
-nav a {
-    color: var(--muted-text);
-    font-size: 0.85rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
-
-nav a:hover {
-    background: #f0f4f8;
-    color: var(--text-color);
+nav a.special:hover {
+    background: var(--accent-color);
+    color: #fff;
 }
 
 /* Main Layout */
@@ -121,7 +107,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 2rem;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -130,7 +116,7 @@ main {
 
 footer {
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     color: var(--muted-text);
     font-size: 0.75rem;
     border-top: 1px solid var(--border-color);
@@ -138,7 +124,7 @@ footer {
     flex-shrink: 0;
 }
 
-/* Home Page */
+/* Home Page - Clean Grid */
 .hero {
     text-align: center;
     height: 100%;
@@ -148,54 +134,87 @@ footer {
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     color: var(--muted-text);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 900px;
+    gap: 3rem;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: left;
 }
 
 .card {
     background: var(--card-bg);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.composition-card {
+    grid-column: span 2;
+    text-align: center;
+    align-items: center;
 }
 
 .card h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.2rem;
-    display: inline-block;
+    align-self: flex-start;
+}
+.composition-card h3 { align-self: center; }
+
+.card p {
+    color: var(--muted-text);
+    margin-bottom: 1.5rem;
+    font-style: italic;
 }
 
-.card ul {
+.link-grid {
     list-style: none;
     padding: 0;
     margin: 0;
-    columns: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
-.card li {
-    margin-bottom: 0.25rem;
+.link-grid li {
+    margin: 0;
+}
+
+.link-grid a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #f0f4f8;
+    color: var(--text-color);
+    border-radius: 4px;
     font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
-/* Detail Pages */
+.link-grid a:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Detail Pages - Optimized Split */
 .detail-container {
     display: grid;
     grid-template-columns: 35% 65%;
@@ -223,7 +242,28 @@ footer {
     color: var(--muted-text);
     border-left: 4px solid var(--accent-color);
     padding-left: 1.5rem;
-    margin: 0;
+    margin-bottom: 3rem;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.page-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-nav a:hover {
+    color: var(--accent-color);
 }
 
 .visual-demo {
@@ -239,7 +279,7 @@ footer {
 .demo-canvas {
     width: 100%;
     flex-grow: 1;
-    background: #061735; /* Dark canvas for art emphasis */
+    background: #061735;
     border: 1px solid #eee;
     display: flex;
     justify-content: center;
@@ -250,328 +290,68 @@ footer {
 }
 
 /* --- Curatorial Edition: Keyframes --- */
-
-@keyframes vibrate {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(-1px, 0); }
-    40% { transform: translate(1px, 0); }
-    60% { transform: translate(-1px, 0); }
-    80% { transform: translate(1px, 0); }
-    100% { transform: translate(0, 0); }
-}
-
-@keyframes drift {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(10px, -10px); }
-    50% { transform: translate(5px, 5px); }
-    75% { transform: translate(-10px, 10px); }
-}
-
-@keyframes lightShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes colorBreath {
-    0%, 100% { transform: scale(1); filter: blur(2px); }
-    50% { transform: scale(1.1); filter: blur(5px); }
-}
-
-@keyframes moireRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes spaceBreathe {
-    0%, 100% { transform: scale(0.9); }
-    50% { transform: scale(1.1); }
-}
-
-@keyframes spotlight {
-    0% { mask-position: -50% -50%; -webkit-mask-position: -50% -50%; }
-    25% { mask-position: 150% -50%; -webkit-mask-position: 150% -50%; }
-    50% { mask-position: 150% 150%; -webkit-mask-position: 150% 150%; }
-    75% { mask-position: -50% 150%; -webkit-mask-position: -50% 150%; }
-    100% { mask-position: -50% -50%; -webkit-mask-position: -50% -50%; }
-}
-
-@keyframes orbit {
-    from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-@keyframes blurFocus {
-    0% { filter: blur(0px); transform: translateX(-100px); }
-    20% { filter: blur(5px); transform: translateX(-50px); }
-    40% { filter: blur(10px); transform: translateX(0px); }
-    60% { filter: blur(5px); transform: translateX(50px); }
-    80% { filter: blur(0px); transform: translateX(100px); }
-    100% { filter: blur(0px); transform: translateX(-100px); }
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    90% { transform: translate(0); }
-    91% { transform: translate(-2px, 2px); }
-    92% { transform: translate(2px, -2px); }
-    93% { transform: translate(0); }
-}
-
-@keyframes ghostTrail {
-    0% { transform: translateX(-150px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateX(150px); opacity: 0; }
-}
-
-@keyframes polyrhythm {
-    0%, 100% { height: 20px; opacity: 0.5; }
-    50% { height: 100px; opacity: 1; }
-}
-
-@keyframes gestalt {
-    0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0.5; }
-    50% { transform: translate(0, 0) rotate(0); opacity: 1; border-color: var(--accent-color); }
-}
-
+/* (Animations retained from previous step) */
+@keyframes vibrate { 0% { transform: translate(0, 0); } 20% { transform: translate(-1px, 0); } 40% { transform: translate(1px, 0); } 60% { transform: translate(-1px, 0); } 80% { transform: translate(1px, 0); } 100% { transform: translate(0, 0); } }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(10px, -10px); } 50% { transform: translate(5px, 5px); } 75% { transform: translate(-10px, 10px); } }
+@keyframes lightShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes colorBreath { 0%, 100% { transform: scale(1); filter: blur(2px); } 50% { transform: scale(1.1); filter: blur(5px); } }
+@keyframes moireRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes spaceBreathe { 0%, 100% { transform: scale(0.9); } 50% { transform: scale(1.1); } }
+@keyframes spotlight { 0% { mask-position: -50% -50%; -webkit-mask-position: -50% -50%; } 25% { mask-position: 150% -50%; -webkit-mask-position: 150% -50%; } 50% { mask-position: 150% 150%; -webkit-mask-position: 150% 150%; } 75% { mask-position: -50% 150%; -webkit-mask-position: -50% 150%; } 100% { mask-position: -50% -50%; -webkit-mask-position: -50% -50%; } }
+@keyframes orbit { from { transform: rotate(0deg) translateX(100px) rotate(0deg); } to { transform: rotate(360deg) translateX(100px) rotate(-360deg); } }
+@keyframes blurFocus { 0% { filter: blur(0px); transform: translateX(-100px); } 20% { filter: blur(5px); transform: translateX(-50px); } 40% { filter: blur(10px); transform: translateX(0px); } 60% { filter: blur(5px); transform: translateX(50px); } 80% { filter: blur(0px); transform: translateX(100px); } 100% { filter: blur(0px); transform: translateX(-100px); } }
+@keyframes glitch { 0% { transform: translate(0); } 90% { transform: translate(0); } 91% { transform: translate(-2px, 2px); } 92% { transform: translate(2px, -2px); } 93% { transform: translate(0); } }
+@keyframes ghostTrail { 0% { transform: translateX(-150px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(150px); opacity: 0; } }
+@keyframes polyrhythm { 0%, 100% { height: 20px; opacity: 0.5; } 50% { height: 100px; opacity: 1; } }
+@keyframes gestalt { 0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0.5; } 50% { transform: translate(0, 0) rotate(0); opacity: 1; border-color: var(--accent-color); } }
+@keyframes chaosToOrder { 0% { transform: translate(-200px, -150px) scale(0.5); opacity: 0; } 20% { transform: translate(150px, 100px) scale(1.2); opacity: 1; border-radius: 0%; } 40% { transform: translate(-50px, 50px) rotate(45deg); border-radius: 50%; } 60% { transform: translate(0, 0) scale(1); border-radius: 50%; border-color: #fff; box-shadow: 0 0 40px var(--accent-color); } 80% { transform: translate(0, 0) scale(1); border-color: #fff; box-shadow: 0 0 60px var(--accent-color); } 100% { transform: translate(0, 0) scale(1); opacity: 0; } }
+@keyframes anchorSlide { 0% { transform: translate(200px, 0); opacity: 0; } 40% { transform: translate(50px, 0); opacity: 0.5; } 60% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; } 80% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; } 100% { transform: translate(0, 0); opacity: 0; } }
 
 /* --- The Elements --- */
-
-/* Line: Tension & Vibration */
-.element-line .demo-canvas {
-    background: #061735;
-}
-.element-line .demo-canvas::before {
-    content: ''; width: 2px; height: 80%;
-    background: var(--accent-color);
-    box-shadow: 0 0 10px var(--accent-color);
-    animation: vibrate 0.1s linear infinite;
-}
-
-/* Shape: The Suprematist Composition */
+.element-line .demo-canvas { background: #061735; }
+.element-line .demo-canvas::before { content: ''; width: 2px; height: 80%; background: var(--accent-color); box-shadow: 0 0 10px var(--accent-color); animation: vibrate 0.1s linear infinite; }
 .element-shape .demo-canvas { background: #061735; }
-.element-shape .demo-canvas::before {
-    content: ''; width: 100px; height: 100px; background: var(--accent-color);
-    position: absolute; top: 30%; left: 30%;
-    animation: drift 10s ease-in-out infinite;
-}
-.element-shape .demo-canvas::after {
-    content: ''; width: 120px; height: 120px; border: 2px solid var(--muted-text); border-radius: 50%;
-    position: absolute; top: 40%; left: 40%;
-    mix-blend-mode: exclusion;
-    animation: drift 15s ease-in-out infinite reverse;
-}
-
-/* Form: The Turrell Illusion */
-.element-form .demo-canvas::before {
-    content: ''; width: 200px; height: 200px; border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%, #fff, #061735);
-    background-size: 200% 200%;
-    animation: lightShift 5s ease-in-out infinite;
-}
-
-/* Color: The Albers Interaction */
+.element-shape .demo-canvas::before { content: ''; width: 100px; height: 100px; background: var(--accent-color); position: absolute; top: 30%; left: 30%; animation: drift 10s ease-in-out infinite; }
+.element-shape .demo-canvas::after { content: ''; width: 120px; height: 120px; border: 2px solid var(--muted-text); border-radius: 50%; position: absolute; top: 40%; left: 40%; mix-blend-mode: exclusion; animation: drift 15s ease-in-out infinite reverse; }
+.element-form .demo-canvas::before { content: ''; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, #fff, #061735); background-size: 200% 200%; animation: lightShift 5s ease-in-out infinite; }
 .element-color .demo-canvas { background: #061735; }
-.element-color .demo-canvas::before {
-    content: ''; width: 150px; height: 150px; background: var(--accent-color);
-    position: absolute; left: 25%; mix-blend-mode: screen;
-    animation: colorBreath 6s ease-in-out infinite;
-}
-.element-color .demo-canvas::after {
-    content: ''; width: 150px; height: 150px; background: #4a5b7c;
-    position: absolute; right: 25%; mix-blend-mode: screen;
-    animation: colorBreath 6s ease-in-out infinite reverse;
-}
-
-/* Texture: The Moire Interference */
+.element-color .demo-canvas::before { content: ''; width: 150px; height: 150px; background: var(--accent-color); position: absolute; left: 25%; mix-blend-mode: screen; animation: colorBreath 6s ease-in-out infinite; }
+.element-color .demo-canvas::after { content: ''; width: 150px; height: 150px; background: #4a5b7c; position: absolute; right: 25%; mix-blend-mode: screen; animation: colorBreath 6s ease-in-out infinite reverse; }
 .element-texture .demo-canvas { background: #fff; }
-.element-texture .demo-canvas::before, .element-texture .demo-canvas::after {
-    content: ''; position: absolute; width: 200%; height: 200%;
-    background: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 1px, transparent 4px);
-}
+.element-texture .demo-canvas::before, .element-texture .demo-canvas::after { content: ''; position: absolute; width: 200%; height: 200%; background: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 1px, transparent 4px); }
 .element-texture .demo-canvas::before { animation: moireRotate 60s linear infinite; }
 .element-texture .demo-canvas::after { opacity: 0.5; }
-
-/* Space: The Ma */
 .element-space .demo-canvas { background: #fff; }
-.element-space .demo-canvas::before {
-    content: ''; width: 60%; height: 60%;
-    border: 1px solid #000;
-}
-.element-space .demo-canvas::after {
-    content: ''; width: 150px; height: 150px; background: #000;
-    position: absolute; right: -50px;
-    animation: spaceBreathe 8s ease-in-out infinite;
-}
-
-/* Value: The Caravaggio Gradient */
-.element-value .demo-canvas { background: #000; }
-.element-value .demo-canvas::before {
-    content: ''; width: 100%; height: 100%;
-    background: 
-        linear-gradient(45deg, #fff 25%, transparent 25%) -50px 0,
-        linear-gradient(-45deg, #fff 25%, transparent 25%) -50px 0;
-    background-size: 100px 100%;
-    opacity: 0.2;
-}
-/* Spotlight effect via mask */
-.element-value .demo-canvas {
-    -webkit-mask-image: radial-gradient(circle, black 20%, transparent 50%);
-    mask-image: radial-gradient(circle, black 20%, transparent 50%);
-    -webkit-mask-size: 200% 200%;
-    mask-size: 200% 200%;
-    animation: spotlight 8s linear infinite;
-}
-
+.element-space .demo-canvas::before { content: ''; width: 60%; height: 60%; border: 1px solid #000; }
+.element-space .demo-canvas::after { content: ''; width: 150px; height: 150px; background: #000; position: absolute; right: -50px; animation: spaceBreathe 8s ease-in-out infinite; }
+.element-value .demo-canvas { background: #000; -webkit-mask-image: radial-gradient(circle, black 20%, transparent 50%); mask-image: radial-gradient(circle, black 20%, transparent 50%); -webkit-mask-size: 200% 200%; mask-size: 200% 200%; animation: spotlight 8s linear infinite; }
+.element-value .demo-canvas::before { content: ''; width: 100%; height: 100%; background: linear-gradient(45deg, #fff 25%, transparent 25%) -50px 0, linear-gradient(-45deg, #fff 25%, transparent 25%) -50px 0; background-size: 100px 100%; opacity: 0.2; }
 
 /* --- The Principles --- */
-
-/* Balance: Asymmetrical Tension */
 .principle-balance .demo-canvas { background: #fff; }
-.principle-balance .demo-canvas::before {
-    content: ''; width: 100px; height: 100px; background: #000;
-    position: absolute; left: 30%;
-}
-.principle-balance .demo-canvas::after {
-    content: ''; width: 10px; height: 10px; background: var(--accent-color); border-radius: 50%;
-    position: absolute; left: 30%; /* Start at center */
-    animation: orbit 4s linear infinite;
-}
-
-/* Contrast: Clarity vs Obscurity */
+.principle-balance .demo-canvas::before { content: ''; width: 100px; height: 100px; background: #000; position: absolute; left: 30%; }
+.principle-balance .demo-canvas::after { content: ''; width: 10px; height: 10px; background: var(--accent-color); border-radius: 50%; position: absolute; left: 30%; animation: orbit 4s linear infinite; }
 .principle-contrast .demo-canvas { background: #000; }
-.principle-contrast .demo-canvas::before {
-    content: ''; width: 80px; height: 80px; border: 4px solid var(--accent-color);
-    animation: blurFocus 6s linear infinite;
-}
-
-/* Emphasis: Stillness in Chaos */
-.principle-emphasis .demo-canvas { 
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; width: 200px; 
-}
-/* We can't generate 20 divs in CSS alone without modifying views.clj structure heavily. 
-   Simplifying: Use background pattern for chaos, one div for order. */
-.principle-emphasis .demo-canvas {
-    background-image: radial-gradient(#4a5b7c 2px, transparent 2px);
-    background-size: 20px 20px;
-    animation: glitch 0.2s infinite;
-}
-.principle-emphasis .demo-canvas::before {
-    content: ''; width: 20px; height: 20px; background: var(--accent-color);
-    position: absolute; top: 61%; left: 61%; /* Golden ratio approx */
-    box-shadow: 0 0 20px var(--accent-color);
-}
-
-/* Movement: The Duchamp Echo */
+.principle-contrast .demo-canvas::before { content: ''; width: 80px; height: 80px; border: 4px solid var(--accent-color); animation: blurFocus 6s linear infinite; }
+.principle-emphasis .demo-canvas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; width: 200px; background-image: radial-gradient(#4a5b7c 2px, transparent 2px); background-size: 20px 20px; animation: glitch 0.2s infinite; }
+.principle-emphasis .demo-canvas::before { content: ''; width: 20px; height: 20px; background: var(--accent-color); position: absolute; top: 61%; left: 61%; box-shadow: 0 0 20px var(--accent-color); }
 .principle-movement .demo-canvas { background: #fff; }
-.principle-movement .demo-canvas::before {
-    content: ''; width: 50px; height: 50px; border: 2px solid #000; border-radius: 50%;
-    box-shadow: 
-        -30px 0 0 -5px rgba(0,0,0,0.5),
-        -60px 0 0 -10px rgba(0,0,0,0.3),
-        -90px 0 0 -15px rgba(0,0,0,0.1);
-    animation: ghostTrail 3s linear infinite;
-}
-
-/* Pattern: The Glider's Life */
-.principle-pattern .demo-canvas {
-    background-color: #061735;
-    background-image: url('../img/glider.png');
-    background-size: 40px 40px;
-    image-rendering: pixelated;
-    /* Move background diagonally */
-    animation: scrollBg 2s steps(8) infinite;
-}
-@keyframes scrollBg {
-    from { background-position: 0 0; }
-    to { background-position: 40px 40px; }
-}
-
-/* Rhythm: Syncopation */
-.principle-rhythm .demo-canvas { 
-    display: flex; align-items: flex-end; justify-content: center; gap: 20px; height: 200px;
-    background: #061735;
-}
-.principle-rhythm .demo-canvas::before, .principle-rhythm .demo-canvas::after {
-    content: ''; width: 20px; background: var(--accent-color);
-}
+.principle-movement .demo-canvas::before { content: ''; width: 50px; height: 50px; border: 2px solid #000; border-radius: 50%; box-shadow: -30px 0 0 -5px rgba(0,0,0,0.5), -60px 0 0 -10px rgba(0,0,0,0.3), -90px 0 0 -15px rgba(0,0,0,0.1); animation: ghostTrail 3s linear infinite; }
+.principle-pattern .demo-canvas { background-color: #061735; background-image: url('../img/glider.png'); background-size: 40px 40px; image-rendering: pixelated; animation: scrollBg 2s steps(8) infinite; }
+@keyframes scrollBg { from { background-position: 0 0; } to { background-position: 40px 40px; } }
+.principle-rhythm .demo-canvas { display: flex; align-items: flex-end; justify-content: center; gap: 20px; height: 200px; background: #061735; }
+.principle-rhythm .demo-canvas::before, .principle-rhythm .demo-canvas::after { content: ''; width: 20px; background: var(--accent-color); }
 .principle-rhythm .demo-canvas::before { animation: polyrhythm 2s ease-in-out infinite; }
-.principle-rhythm .demo-canvas::after  { animation: polyrhythm 3s ease-in-out infinite; }
-/* Adding a third requires structure change or background hack. Two is polyrhythmic enough. */
-
-/* Unity: The Gestalt Moment */
+.principle-rhythm .demo-canvas::after { animation: polyrhythm 3s ease-in-out infinite; }
 .principle-unity .demo-canvas { background: #fff; }
-.principle-unity .demo-canvas::before, .principle-unity .demo-canvas::after {
-    content: ''; width: 50px; height: 50px; border: 2px solid #000; position: absolute;
-}
-.principle-unity .demo-canvas::before {
-    --x: -40px; --y: -40px; --r: 15deg;
-    animation: gestalt 5s ease-in-out infinite;
-}
-.principle-unity .demo-canvas::after {
-    --x: 40px; --y: 40px; --r: -15deg;
-    animation: gestalt 5s ease-in-out infinite;
-}
-
+.principle-unity .demo-canvas::before, .principle-unity .demo-canvas::after { content: ''; width: 50px; height: 50px; border: 2px solid #000; position: absolute; }
+.principle-unity .demo-canvas::before { var(--x): -40px; var(--y): -40px; var(--r): 15deg; animation: gestalt 5s ease-in-out infinite; }
+.principle-unity .demo-canvas::after { var(--x): 40px; var(--y): 40px; var(--r): -15deg; animation: gestalt 5s ease-in-out infinite; }
 
 /* --- The Synthesis: Composition --- */
-.composition-composition .demo-canvas {
-    background: #061735;
-    /* Golden Ratio Grid Background */
-    background-image: 
-        linear-gradient(var(--accent-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--accent-color) 1px, transparent 1px);
-    background-size: 100px 100px;
-    background-position: center;
-}
-
-/* We need multiple elements for this synthesis. Using pseudo-elements on multiple nested divs would be ideal, 
-   but we are limited to the single .demo-canvas container structure. 
-   We will use ::before and ::after to create complex composite shapes. */
-
-.composition-composition .demo-canvas::before {
-    /* The Chaos: A circle that moves wildly */
-    content: ''; width: 60px; height: 60px; 
-    border: 4px solid var(--accent-color); border-radius: 50%;
-    position: absolute;
-    animation: chaosToOrder 8s cubic-bezier(0.2, 0, 0.2, 1) infinite;
-}
-
-.composition-composition .demo-canvas::after {
-    /* The Order: A square that anchors the composition */
-    content: ''; width: 100px; height: 100px; 
-    background: var(--text-color); mix-blend-mode: overlay;
-    position: absolute;
-    animation: anchorSlide 8s cubic-bezier(0.2, 0, 0.2, 1) infinite;
-}
-
-@keyframes chaosToOrder {
-    0% { transform: translate(-200px, -150px) scale(0.5); opacity: 0; }
-    20% { transform: translate(150px, 100px) scale(1.2); opacity: 1; border-radius: 0%; }
-    40% { transform: translate(-50px, 50px) rotate(45deg); border-radius: 50%; }
-    60% { transform: translate(0, 0) scale(1); border-radius: 50%; border-color: #fff; box-shadow: 0 0 40px var(--accent-color); }
-    80% { transform: translate(0, 0) scale(1); border-color: #fff; box-shadow: 0 0 60px var(--accent-color); }
-    100% { transform: translate(0, 0) scale(1); opacity: 0; }
-}
-
-@keyframes anchorSlide {
-    0% { transform: translate(200px, 0); opacity: 0; }
-    40% { transform: translate(50px, 0); opacity: 0.5; }
-    60% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; }
-    80% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; }
-    100% { transform: translate(0, 0); opacity: 0; }
-}
-
-/* Nav special link */
-nav a.special {
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-}
-nav a.special:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
+.composition-composition .demo-canvas { background: #061735; background-image: linear-gradient(var(--accent-color) 1px, transparent 1px), linear-gradient(90deg, var(--accent-color) 1px, transparent 1px); background-size: 100px 100px; background-position: center; }
+.composition-composition .demo-canvas::before { content: ''; width: 60px; height: 60px; border: 4px solid var(--accent-color); border-radius: 50%; position: absolute; animation: chaosToOrder 8s cubic-bezier(0.2, 0, 0.2, 1) infinite; }
+.composition-composition .demo-canvas::after { content: ''; width: 100px; height: 100px; background: var(--text-color); mix-blend-mode: overlay; position: absolute; animation: anchorSlide 8s cubic-bezier(0.2, 0, 0.2, 1) infinite; }
 
 /* Responsive Adjustments */
 @media (max-width: 800px) {

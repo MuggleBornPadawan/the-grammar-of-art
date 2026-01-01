@@ -21,8 +21,9 @@ The project uses a **"Modern Gallery"** aesthetic:
     *   **Background:** Soft White (`#fdfdfd`)
     *   **Text:** Deep Blue (`#061735`)
     *   **Accents:** Gold (`#B3892C`)
-*   **Layout:** "Compact Viewport" design. On desktop, content is split 35/65 (Text/Image) and fitted to `100vh` to eliminate vertical scrolling. Mobile falls back to a vertical scroll layout.
-*   **Visuals:** All art demonstrations are created using pure CSS/CSS Art techniques, adhering to the project's color palette.
+*   **Layout:** "Compact Viewport" design. On desktop, content is split 35/65 (Text/Image) and fitted to `100vh` to eliminate vertical scrolling.
+*   **Navigation:** A "Hub and Spoke" model. The Home page serves as the gallery directory. Detail pages feature Next/Prev navigation to guide the user through the curriculum linearly.
+*   **Visuals:** All art demonstrations are created using pure CSS/CSS Art techniques, adhering to the project's color palette and focusing on perception/visual theory.
 
 ## Architecture
 
@@ -68,9 +69,3 @@ The `docs/` folder is configured to be served by GitHub Pages. To deploy updates
 1.  Run the generation command above.
 2.  Commit the changes to `docs/`.
 3.  Push to the `main` branch.
-
-## Development Conventions
-
-*   **Visual Demos:** The specific visual representations of art concepts are implemented primarily through CSS classes defined in `style.css` and applied in `views.clj`.
-*   **Base URL:** When adding new links or assets in `views.clj`, wrap paths with the `(url ...)` function to ensure they resolve correctly in both development and production.
-*   **Assets:** Place images in `resources/public/img`. The build script copies them to `docs/img`.

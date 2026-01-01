@@ -14,11 +14,15 @@ Tools used to create artwork:
 Methods for organizing the elements:
 *   Balance, Contrast, Emphasis, Movement, Pattern, Rhythm, and Unity.
 
+### The Synthesis
+*   **Composition:** The orchestration of elements according to principles.
+
 ## 🚀 Features
 *   **Dynamic Development:** Real-time rendering using Clojure/Ring.
-*   **CSS Art Visualizations:** Each concept includes a pure CSS visual demonstration.
+*   **Curatorial Visuals:** Each concept includes a sophisticated, real-time CSS animation exploring visual theory.
 *   **"Modern Gallery" Theme:** High-readability layout with a Soft White background, Deep Blue text, and Gold accents.
 *   **Compact Viewport UI:** Designed to fit content on a single screen without scrolling on desktop.
+*   **Linear Navigation:** "Next/Previous" controls allow users to tour the gallery sequentially.
 *   **Static Site Generation:** Automated script to compile views into optimized HTML for GitHub Pages.
 *   **Responsive Design:** Mobile-friendly fallback layout.
 
