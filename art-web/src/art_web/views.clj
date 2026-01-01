@@ -69,10 +69,9 @@
     (if item
       (layout (:title item)
               [:div.detail-container {:class (str type "-" id)}
-               [:h2 (:title item)]
-               [:p.definition (:desc item)]
+               [:div.text-content
+                [:h2 (:title item)]
+                [:p.definition (:desc item)]]
                [:div.visual-demo
-                [:div.demo-canvas]]
-               [:div.navigation
-                [:a {:href (url "/")} "&larr; Back to Home"]]])
+                [:div.demo-canvas]]])
       (layout "Not Found" [:h2 "Topic not found."]))))
