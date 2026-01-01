@@ -8,47 +8,47 @@
   (str *base-url* path))
 
 (def elements
-  [{:id "line" :title "Line" :desc "More than a path between points; it is the division of space. A line vibrates with tension, defining boundaries and suggesting trajectory within the picture plane."}
-   {:id "shape" :title "Shape" :desc "The fundamental unit of composition. Shapes act not merely as outlines, but as fields of influence that define negative space and interact with neighboring forms."}
-   {:id "form" :title "Form" :desc "The illusion of volume on a flat surface. Through the manipulation of light and shadow (chiaroscuro), form creates a perceptual ambiguity between the 2D plane and 3D space."}
-   {:id "color" :title "Color" :desc "The most relative medium in art. Color creates mood and depth not through absolute hue, but through the interaction and vibration of adjacent chromatic fields."}
-   {:id "texture" :title "Texture" :desc "The tactile quality of a surface, whether physical or implied. In the digital realm, texture arises from optical interference and the density of information."}
-   {:id "space" :title "Space" :desc "Not emptiness, but volume. 'Ma' (negative space) is an active participant in composition, pushing against positive forms to create balance and breath."}
-   {:id "value" :title "Value" :desc "The architecture of light. Independent of color, value establishes the dramatic structure of a piece, revealing geometry through the gradation of luminosity."}])
+  [{:id "line" :title "Line" :desc "The record of a gesture in time. Line is the primary division of the void, a path that vibrates with tension. It defines the boundaries of existence and suggests trajectory within the picture plane."}
+   {:id "shape" :title "Shape" :desc "The imposition of boundary upon the infinite. Shapes are not merely outlines, but fields of influence that define negative space and establish the fundamental geography of the canvas."}
+   {:id "form" :title "Form" :desc "The illusion of mass in a massless medium. Through the architecture of light and shadow (chiaroscuro), form creates a perceptual ambiguity, forcing the 2D plane to surrender to 3D volume."}
+   {:id "color" :title "Color" :desc "The emotional frequency of light. It is the most relative and subjective medium, creating mood not through absolute hue, but through the vibrating interaction of adjacent chromatic fields."}
+   {:id "texture" :title "Texture" :desc "The tactile memory of the eye. Whether physical or implied, texture disrupts the silence of the surface, introducing noise, history, and the density of information."}
+   {:id "space" :title "Space" :desc "The active presence of nothingness. 'Ma' (negative space) is not empty; it is a pressurized volume that pushes against positive forms, allowing the composition to breathe."}
+   {:id "value" :title "Value" :desc "The revealer of geometry. Independent of color, value establishes the dramatic structure of the image, carving form out of darkness through the precise gradation of luminosity."}])
 
 (def principles
-  [{:id "balance" :title "Balance" :desc "The equilibrium of opposing visual forces. It is the asymmetrical tension where a massive static form is counterweighted by a small, dynamic element."}
-   {:id "contrast" :title "Contrast" :desc "The interplay of opposites—clarity vs. obscurity, geometric vs. organic. High contrast creates drama; low contrast creates mystery."}
-   {:id "emphasis" :title "Emphasis" :desc "The disruption of pattern. The eye is inevitably drawn to the anomaly—the stillness in chaos, or the single deviation in a field of uniformity."}
-   {:id "movement" :title "Movement" :desc "The capture of time in a static medium. Through rhythm and line, the artist dictates the viewer's optical journey across the canvas."}
-   {:id "pattern" :title "Pattern" :desc "Emergence from rules. Pattern is the predictable repetition that allows the viewer to anticipate continuity, creating a comforting or hypnotic visual structure."}
-   {:id "rhythm" :title "Rhythm" :desc "Visual music. Unlike simple repetition, rhythm relies on syncopation and interval, creating a 'beat' that guides the eye through the composition."}
-   {:id "unity" :title "Unity" :desc "The Gestalt moment. The fleeting instant where disparate chaotic elements align to form a coherent whole, proving the sum is greater than its parts."}])
+  [{:id "balance" :title "Balance" :desc "The precarious stillness between opposing forces. It is the management of visual weight, where a massive, static silence creates a counterweight to a small, dynamic noise."}
+   {:id "contrast" :title "Contrast" :desc "The violence of difference. It is the juxtaposition of opposites—clarity vs. obscurity, geometric vs. organic—that generates visual energy and prevents the stasis of monotony."}
+   {:id "emphasis" :title "Emphasis" :desc "The disruption of the expected. The eye is inevitably drawn to the anomaly—the single deviation in a field of uniformity that demands immediate interrogation."}
+   {:id "movement" :title "Movement" :desc "The dragging of the eye through time. By manipulating rhythm and line, the artist acts as a director, dictating the viewer's optical journey across the static surface."}
+   {:id "pattern" :title "Pattern" :desc "The comfort of prediction. Pattern is the establishment of rules that allows the viewer to anticipate continuity, creating a hypnotic visual structure that implies an infinite field."}
+   {:id "rhythm" :title "Rhythm" :desc "Visual syncopation. Unlike simple repetition, rhythm relies on interval and variation, creating a musical 'beat' that pulses through the composition."}
+   {:id "unity" :title "Unity" :desc "The resolution of chaos. The Gestalt moment where disparate, competing elements surrender their individuality to form a singular, inevitable whole."}])
 
 (def perception
-  [{:id "closure" :title "Closure" :desc "The mind’s tendency to complete incomplete shapes, filling in gaps to perceive a whole form rather than disjointed lines."}
-   {:id "proximity" :title "Proximity" :desc "The cognitive rule that objects placed close to one another are perceived as a related group or unit, overriding similarity."}
-   {:id "similarity" :title "Similarity" :desc "The perception that elements sharing characteristics (shape, color, size) belong together, creating implied layers or categories."}
-   {:id "figure-ground" :title "Figure-Ground" :desc "The fundamental distinction between the subject (figure) and the background (ground); playing with this creates ambiguity and interest."}
-   {:id "continuity" :title "Continuity" :desc "The eye's preference to follow a path, line, or curve beyond its ending point, linking separate elements into a single flow."}])
+  [{:id "closure" :title "Closure" :desc "The viewer's complicity in creation. The mind refuses fragmentation, instinctively filling in gaps to perceive a whole form, proving that seeing is an act of construction."}
+   {:id "proximity" :title "Proximity" :desc "The gravitational pull of forms. Objects placed near one another lose their isolation, read by the brain as a coherent unit or narrative group regardless of their individual nature."}
+   {:id "similarity" :title "Similarity" :desc "The tribalism of vision. The eye aggressively groups elements that share characteristics—shape, color, size—creating implied layers and categories within a chaotic field."}
+   {:id "figure-ground" :title "Figure-Ground" :desc "The instability of the subject. The constant battle between the object of focus and its context; playing with this boundary creates ambiguity and intellectual tension."}
+   {:id "continuity" :title "Continuity" :desc "The inertia of sight. The eye prefers to follow a path of least resistance, flowing along curves and lines beyond their endpoints, linking separate events into a single narrative flow."}])
 
 (def structure
-  [{:id "golden-ratio" :title "Golden Ratio" :desc "A mathematical proportion (approx. 1:1.618) found in nature that yields aesthetically pleasing, organic balance when applied to layout."}
-   {:id "rule-of-thirds" :title "Rule of Thirds" :desc "A grid system dividing the image into nine parts; placing focal points at intersections creates more tension and energy than centering."}
-   {:id "hierarchy" :title "Hierarchy" :desc "The visual ordering of elements by importance, manipulated through scale, color weight, and position to guide the viewer’s decoding order."}
-   {:id "economy" :title "Economy" :desc "The principle of 'less is more'—omitting non-essential details to strengthen the impact of the subject."}
-   {:id "variety" :title "Variety" :desc "The necessary counterweight to Unity; introducing differences in scale, shape, or texture to prevent monotony and hold attention."}])
+  [{:id "golden-ratio" :title "Golden Ratio" :desc "The sacred proportion. A mathematical echo of organic growth (approx. 1:1.618) that yields an aesthetically inevitable balance, connecting the artifice of design to the laws of nature."}
+   {:id "rule-of-thirds" :title "Rule of Thirds" :desc "The avoidance of the center. A grid system that forces the subject into the margins, creating a dynamic imbalance that is far more energetic and engaging than perfect symmetry."}
+   {:id "hierarchy" :title "Hierarchy" :desc "The authoritarian ordering of information. Through scale, weight, and position, the artist manipulates the viewer's decoding process, determining what is read first, and what is read last."}
+   {:id "economy" :title "Economy" :desc "The power of the omitted. The discipline of 'less is more,' where the removal of non-essential noise amplifies the signal of the subject."}
+   {:id "variety" :title "Variety" :desc "The antidote to boredom. The necessary introduction of difference in scale, shape, or texture to hold the viewer's attention and prevent the composition from becoming a wallpaper."}])
 
 (def spatial-depth
-  [{:id "linear-perspective" :title "Linear Perspective" :desc "The mathematical system using vanishing points and converging lines to create the illusion of depth and receding space."}
-   {:id "atmospheric-perspective" :title "Atmospheric Perspective" :desc "Creating depth by simulating the atmosphere; distant objects become lighter, cooler, and less detailed."}
-   {:id "foreshortening" :title "Foreshortening" :desc "The visual distortion of an object's dimensions when viewed at an angle, dramatically projecting it toward or away from the viewer."}
-   {:id "overlapping" :title "Overlapping" :desc "The simplest cue for depth; when one object partially obscures another, it is instantly perceived as being 'in front'."}])
+  [{:id "linear-perspective" :title "Linear Perspective" :desc "The rationalization of infinity. A mathematical system that pierces the picture plane, creating a convincing window into a constructed, receding world."}
+   {:id "atmospheric-perspective" :title "Atmospheric Perspective" :desc "The weight of the air. The realization that atmosphere is not transparent; it veils distant forms in light and cool tones, simulating the vastness of the natural world."}
+   {:id "foreshortening" :title "Foreshortening" :desc "The aggressive projection. The visual distortion of an object's dimensions when viewed head-on, thrusting the form violently into the viewer's space."}
+   {:id "overlapping" :title "Overlapping" :desc "The hierarchy of distance. The simplest yet most effective cue for depth; when one object obscures another, it asserts its dominance in the Z-axis."}])
 
 (def color-dynamics
-  [{:id "temperature" :title "Temperature" :desc "The psychological heat of a color. Warm colors tend to advance toward the viewer, while cool colors recede."}
-   {:id "saturation" :title "Saturation" :desc "The purity or intensity of a hue. High saturation demands attention, while desaturation implies distance or neutrality."}
-   {:id "simultaneous-contrast" :title "Simultaneous Contrast" :desc "The phenomenon where a color changes appearance based on the colors surrounding it."}])
+  [{:id "temperature" :title "Temperature" :desc "The tactile quality of light. The psychological sensation of heat (advance) and cold (retreat) that manipulates the viewer's perception of depth and mood."}
+   {:id "saturation" :title "Saturation" :desc "The intensity of existence. The difference between a shout and a whisper; high chroma demands attention, while desaturation implies distance, age, or neutrality."}
+   {:id "simultaneous-contrast" :title "Simultaneous Contrast" :desc "The lie of the eye. The phenomenon where a color's identity is unstable, shifting dramatically based on the chromatic context that surrounds it."}])
 
 (def composition
   {:id "composition" :title "Composition" :desc "The Arrested Moment. Composition is not a formula; it is the freezing of dynamic forces in a state of precarious equilibrium. It is a confrontation between the rigid logic of geometry and the chaotic will of the artist, holding the viewer in the tension between these opposing powers."})
@@ -74,36 +74,36 @@
 (defn home-page []
   (layout "Home"
           [:div.hero
-           [:h2 "Master the Basics"]
-           [:p "Explore the building blocks of visual art."]
+           [:h2 "The Vocabulary of Vision"]
+           [:p "A curated exploration of the forces that shape visual perception."]
            [:div.grid-container
             [:div.collection
              [:h3 "The Elements"]
-             [:p "The tools to make art."]
+             [:p "The primal atoms of art."]
              [:ul.link-grid (for [e elements] [:li [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)]])]]
             [:div.collection
              [:h3 "The Principles"]
-             [:p "How to use the tools."]
+             [:p "The management of tension."]
              [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
             [:div.collection
              [:h3 "Perception"]
-             [:p "How we see."]
+             [:p "The construction of reality."]
              [:ul.link-grid (for [p perception] [:li [:a {:href (url (str "/perception/" (:id p) ".html"))} (:title p)]])]]
             [:div.collection
              [:h3 "Structure"]
-             [:p "The grid."]
+             [:p "The hidden geometry."]
              [:ul.link-grid (for [s structure] [:li [:a {:href (url (str "/structure/" (:id s) ".html"))} (:title s)]])]]
             [:div.collection
              [:h3 "Spatial Depth"]
-             [:p "Simulating 3D."]
+             [:p "The conquest of the plane."]
              [:ul.link-grid (for [s spatial-depth] [:li [:a {:href (url (str "/spatial-depth/" (:id s) ".html"))} (:title s)]])]]
             [:div.collection
              [:h3 "Color Dynamics"]
-             [:p "Advanced theory."]
+             [:p "The alchemy of feeling."]
              [:ul.link-grid (for [c color-dynamics] [:li [:a {:href (url (str "/color-dynamics/" (:id c) ".html"))} (:title c)]])]]]
            [:div.composition-section
             [:h3 "Composition"]
-            [:p "The Synthesis."]
+            [:p "The Synthesis of Forces."]
             [:a.button {:href (url "/composition.html")} "View the Masterpiece"]]]))
 
 (defn detail-page [type id]
