@@ -25,7 +25,7 @@ A comprehensive, interactive web application exploring the fundamental vocabular
 Built with **Clojure**, it features a "Modern Gallery" aesthetic designed for an immersive, non-scrolling desktop experience.
 
 ## 🏛️ Enter the Exhibition
-Visit the interactive gallery here: [https://mugglebornpadawan.github.io/art/](https://mugglebornpadawan.github.io/art/)
+Visit the interactive gallery here: [https://mugglebornpadawan.github.io/the-grammar-of-art/](https://mugglebornpadawan.github.io/the-grammar-of-art/)
 
 ---
 

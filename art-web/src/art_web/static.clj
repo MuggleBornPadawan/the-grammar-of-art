@@ -12,7 +12,7 @@
   (println "Generating static site...")
   
   ;; Set base URL for GitHub Pages
-  (alter-var-root #'views/*base-url* (constantly "/art"))
+  (alter-var-root #'views/*base-url* (constantly "/the-grammar-of-art"))
 
   ;; Generate Home
   (write-page "index.html" (views/home-page))

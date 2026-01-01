@@ -1,6 +1,6 @@
 (defproject art-web "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "The Grammar of Art - An interactive exhibition of visual principles"
+  :url "https://github.com/MuggleBornPadawan/the-grammar-of-art"
   :license {:name "GNU General Public License v3.0"
             :url "https://www.gnu.org/licenses/gpl-3.0.txt"}
   :min-lein-version "2.0.0"
