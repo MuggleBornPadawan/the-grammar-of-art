@@ -25,6 +25,9 @@
    {:id "rhythm" :title "Rhythm" :desc "Visual music. Unlike simple repetition, rhythm relies on syncopation and interval, creating a 'beat' that guides the eye through the composition."}
    {:id "unity" :title "Unity" :desc "The Gestalt moment. The fleeting instant where disparate chaotic elements align to form a coherent whole, proving the sum is greater than its parts."}])
 
+(def composition
+  {:id "composition" :title "Composition" :desc "The Synthesis. Composition is the act of arranging the Elements according to the Principles. It is the sentence constructed from the grammar of art—the deliberate orchestration of visual forces to create meaning, emotion, and aesthetic resolve."})
+
 (defn layout [title & content]
   (html5
    [:head
@@ -43,7 +46,8 @@
           [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)])]
        [:li [:span "Principles: "]
         (for [p principles]
-          [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)])]]]]
+          [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)])]
+       [:li [:a.special {:href (url "/composition.html")} "Composition"]]]]]
     [:main content]
     [:footer
      [:p "The Grammar of Art - Built with Clojure"]]]))
@@ -61,10 +65,17 @@
             [:div.card
              [:h3 "The Principles"]
              [:p "How to use the tools."]
-             [:ul (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]]]))
+             [:ul (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
+            [:div.card.composition-card
+             [:h3 "Composition"]
+             [:p "The Synthesis."]
+             [:ul [:li [:a {:href (url "/composition.html")} "View the Masterpiece"]]]]]]))
 
 (defn detail-page [type id]
-  (let [items (if (= type "element") elements principles)
+  (let [items (cond 
+                (= type "element") elements 
+                (= type "principle") principles
+                :else [composition])
         item (first (filter #(= (:id %) id) items))]
     (if item
       (layout (:title item)

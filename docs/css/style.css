@@ -513,6 +513,66 @@ footer {
     animation: gestalt 5s ease-in-out infinite;
 }
 
+
+/* --- The Synthesis: Composition --- */
+.composition-composition .demo-canvas {
+    background: #061735;
+    /* Golden Ratio Grid Background */
+    background-image: 
+        linear-gradient(var(--accent-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent-color) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: center;
+}
+
+/* We need multiple elements for this synthesis. Using pseudo-elements on multiple nested divs would be ideal, 
+   but we are limited to the single .demo-canvas container structure. 
+   We will use ::before and ::after to create complex composite shapes. */
+
+.composition-composition .demo-canvas::before {
+    /* The Chaos: A circle that moves wildly */
+    content: ''; width: 60px; height: 60px; 
+    border: 4px solid var(--accent-color); border-radius: 50%;
+    position: absolute;
+    animation: chaosToOrder 8s cubic-bezier(0.2, 0, 0.2, 1) infinite;
+}
+
+.composition-composition .demo-canvas::after {
+    /* The Order: A square that anchors the composition */
+    content: ''; width: 100px; height: 100px; 
+    background: var(--text-color); mix-blend-mode: overlay;
+    position: absolute;
+    animation: anchorSlide 8s cubic-bezier(0.2, 0, 0.2, 1) infinite;
+}
+
+@keyframes chaosToOrder {
+    0% { transform: translate(-200px, -150px) scale(0.5); opacity: 0; }
+    20% { transform: translate(150px, 100px) scale(1.2); opacity: 1; border-radius: 0%; }
+    40% { transform: translate(-50px, 50px) rotate(45deg); border-radius: 50%; }
+    60% { transform: translate(0, 0) scale(1); border-radius: 50%; border-color: #fff; box-shadow: 0 0 40px var(--accent-color); }
+    80% { transform: translate(0, 0) scale(1); border-color: #fff; box-shadow: 0 0 60px var(--accent-color); }
+    100% { transform: translate(0, 0) scale(1); opacity: 0; }
+}
+
+@keyframes anchorSlide {
+    0% { transform: translate(200px, 0); opacity: 0; }
+    40% { transform: translate(50px, 0); opacity: 0.5; }
+    60% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; }
+    80% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; }
+    100% { transform: translate(0, 0); opacity: 0; }
+}
+
+/* Nav special link */
+nav a.special {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+nav a.special:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 800px) {
     body { height: auto; overflow-x: auto; }

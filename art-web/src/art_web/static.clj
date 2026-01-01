@@ -27,6 +27,9 @@
     (write-page (str "principle/" (:id p) ".html") 
                 (views/detail-page "principle" (:id p))))
 
+  ;; Generate Composition
+  (write-page "composition.html" (views/detail-page "composition" "composition"))
+
   ;; Copy CSS
   (let [css-source (io/file "resources/public/css")
         css-dest (io/file "../docs/css")]
