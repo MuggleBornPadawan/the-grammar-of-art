@@ -1,36 +1,36 @@
 # The Grammar of Art
 
-An educational web application covering the fundamental **Elements of Art** and **Principles of Composition**.
+An educational web application covering the fundamental **Elements of Art**, **Principles of Composition**, and their final **Synthesis**.
 
 Built with **Clojure**, this project serves as both a dynamic educational tool and a static site generator for hosting on GitHub Pages. It features a "Modern Gallery" aesthetic designed for maximum readability and visual impact.
 
 ## 🎨 Content Covered
 
 ### The 7 Elements of Art
-Tools used to create artwork:
+Materiality and Perception:
 *   Line, Shape, Form, Color, Texture, Space, and Value.
 
 ### The 7 Principles of Composition
-Methods for organizing the elements:
+Organization and Psychology:
 *   Balance, Contrast, Emphasis, Movement, Pattern, Rhythm, and Unity.
 
 ### The Synthesis
-*   **Composition:** The orchestration of elements according to principles.
+*   **Composition:** "The Arrested Moment"—the freezing of dynamic forces in precarious equilibrium.
 
 ## 🚀 Features
 *   **Dynamic Development:** Real-time rendering using Clojure/Ring.
-*   **Curatorial Visuals:** Each concept includes a sophisticated, real-time CSS animation exploring visual theory.
+*   **Generative CSS Art:** Each concept includes a sophisticated, real-time CSS animation using prime-number timing loops to simulate organic randomness.
 *   **"Modern Gallery" Theme:** High-readability layout with a Soft White background, Deep Blue text, and Gold accents.
-*   **Compact Viewport UI:** Designed to fit content on a single screen without scrolling on desktop.
-*   **Linear Navigation:** "Next/Previous" controls allow users to tour the gallery sequentially.
+*   **Compact Viewport UI:** Optimized to fit content on a single screen (100vh) without scrolling on desktop.
+*   **Linear Navigation:** "Next/Previous" controls allow for a guided, sequential tour of the curriculum.
 *   **Static Site Generation:** Automated script to compile views into optimized HTML for GitHub Pages.
-*   **Responsive Design:** Mobile-friendly fallback layout.
 
 ## 🛠 Tech Stack
 *   **Language:** Clojure
 *   **Web Server:** Ring / Jetty
 *   **Routing:** Compojure
 *   **HTML Generation:** Hiccup
+*   **Visuals:** Pure CSS (Generative)
 *   **Hosting:** GitHub Pages (via the `docs/` folder)
 
 ## 💻 Local Development
@@ -57,7 +57,7 @@ lein run -m art-web.static
 ```
 
 ## 🌐 Live Site
-Visit the live project here: [https://mugglebornpadawan.github.io/art/](https://mugglebornpadawan.github.io/art/)
+Visit the live gallery here: [https://mugglebornpadawan.github.io/art/](https://mugglebornpadawan.github.io/art/)
 
 ## 📜 License
 This project is open source and available under the [GNU General Public License v3.0](LICENSE).
