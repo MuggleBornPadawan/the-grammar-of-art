@@ -2,54 +2,53 @@
 
 ## Project Overview
 
-This is a Clojure-based interactive web application designed to teach the fundamental elements of art, principles of composition, and visual phenomenology. It is a dual-mode application:
+This is a Clojure-based interactive web application designed to teach the fundamental elements of art, principles of composition, and visual phenomenology through a series of conceptually-driven interactive artworks.
+
+It is a dual-mode application:
 1.  **Development:** A dynamic web server using Ring and Compojure.
-2.  **Production:** A static site generator that outputs HTML, CSS, and JS to the `docs/` directory for hosting on GitHub Pages.
+2.  **Production:** A static site generator that outputs a complete, high-performance web app to the `docs/` directory.
 
 **Tech Stack:**
 *   **Language:** Clojure
 *   **Build Tool:** Leiningen
-*   **Web Framework:** Ring / Compojure
 *   **Interactivity:** Vanilla JS + CSS Variables
-*   **Styling:** Custom CSS (Generative & Responsive)
+*   **Styling:** Custom CSS (Behavioral, Generative & Responsive)
 
 ## Design Philosophy
 
-The project uses a **"Modern Gallery"** aesthetic:
-*   **Branding:** A unified SVG brand mark combining the Glider (hacker emblem) and the site title.
-*   **Typography:** `Merriweather` (Serif) for headers, `Inter` (Sans-Serif) for body.
-*   **Palette:** Background: `#fdfdfd`, Text: `#061735`, Accents: `#B3892C`.
-*   **Layout:** "Compact Viewport" design (100vh) to eliminate vertical scrolling on desktop.
-*   **Curatorial Voice:** Content is written from a high-end curatorial perspective, focusing on the philosophical "essence" of art rather than simple textbook definitions.
+The project uses a **"Modern Gallery"** aesthetic coupled with a sophisticated interaction model.
+*   **Curatorial Voice:** Content is written from a high-end curatorial perspective, focusing on the philosophical "why" behind each concept.
+*   **Interaction as Revelation:** User input is designed as a form of inquiry. Instead of direct control (e.g., dragging a shape), the user applies a **force** (e.g., gravity, pressure), revealing the underlying principles through the artwork's emergent behavior.
+*   **Layout:** "Compact Viewport" design (100vh) for an immersive, non-scrolling desktop experience.
 
 ## Architecture
 
-*   **Interactive Layer (`js/interaction.js`):** Tracks mouse/touch coordinates and injects normalized values (`--int-x`, `--int-y`) into CSS. 
-*   **Generative Visuals:** Pure CSS animations using prime-number loops and keyframe transformations.
-*   **Static Generation (`static.clj`):** Compiles 30+ pages (Home, 24 Details, 6 Sections, 1 Synthesis) and copies CSS/JS/Images to the `docs/` folder.
+*   **Interactive Layer (`js/interaction.js`):** A lightweight script that tracks mouse/touch coordinates and provides normalized `--int-x` and `--int-y` CSS variables to the artworks.
+*   **Behavioral Visuals (`css/style.css`):** Each of the 24 artworks has a "Curator's Cut" implementation. The CSS uses `calc()` and custom properties to create a physics-and-behavior-driven system that responds to the interactive inputs, rather than relying on simple, looping animations.
+*   **Static Generation (`static.clj`):** Compiles all pages and copies the full CSS/JS/Image asset suite to the `docs/` folder.
 
 ## Curriculum Structure
 
 The site is organized into 6 distinct pillars:
-1.  **The Elements:** Fundamental building blocks.
-2.  **The Principles:** Rules of organization and tension.
-3.  **Perception:** Gestalt laws of visual psychology.
-4.  **Structure:** Mathematical and compositional grids.
-5.  **Spatial Depth:** Techniques for 3D simulation.
-6.  **Color Dynamics:** Advanced color theory and alchemy.
+1.  **The Elements:** The primal forces of vision.
+2.  **The Principles:** The grammar of relationships.
+3.  **Perception:** The active construction of reality.
+4.  **Structure:** The hidden geometry of composition.
+5.  **Spatial Depth:** The conquest of the 2D plane.
+6.  **Color Dynamics:** The alchemy of feeling.
 
 ## Directory Structure
 
 *   `art-web/`: The core Clojure project.
     *   `src/art_web/`:
-        *   `handler.clj`: Compojure routes (now including 6 section paths).
-        *   `views.clj`: Hiccup templates and the complete curatorial content database.
-        *   `static.clj`: Static site generator with JS/CSS copy logic.
+        *   `handler.clj`: Compojure routes for all curriculum paths.
+        *   `views.clj`: Hiccup templates and the complete curatorial text database.
+        *   `static.clj`: Static site generator.
     *   `resources/public/`:
-        *   `css/style.css`: Main stylesheet containing 24+ generative art definitions and `.js-active` interactive overrides.
-        *   `js/interaction.js`: The coordinate tracking script.
+        *   `css/style.css`: Main stylesheet containing all behavioral art definitions.
+        *   `js/interaction.js`: The coordinate-to-force translation script.
         *   `img/`: SVG logos and assets.
-*   `docs/`: The generated static website, served by GitHub Pages.
+*   `docs/`: The generated static website.
 
 ## Building and Running
 
@@ -64,6 +63,3 @@ lein ring server
 cd art-web
 lein run -m art-web.static
 ```
-
-### 3. Deploy
-Regenerate, commit the `docs/` folder, and push to the `main` branch.
