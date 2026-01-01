@@ -124,13 +124,10 @@ footer {
     flex-shrink: 0;
 }
 
-/* Home Page - Clean Grid */
+/* Home Page - Clean Gallery Wall */
 .hero {
     text-align: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-bottom: 3rem;
 }
 
 .hero h2 {
@@ -141,47 +138,34 @@ footer {
 .hero p {
     font-size: 1.25rem;
     color: var(--muted-text);
-    margin-bottom: 3rem;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    gap: 4rem;
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
     text-align: left;
 }
 
-.card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+.collection {
+    /* Removed card styling for clutter-free look */
     display: flex;
     flex-direction: column;
 }
 
-.composition-card {
-    grid-column: span 2;
-    text-align: center;
-    align-items: center;
-}
-
-.card h3 {
+.collection h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.2rem;
-    align-self: flex-start;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
 }
-.composition-card h3 { align-self: center; }
 
-.card p {
+.collection p {
     color: var(--muted-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-style: italic;
+    font-size: 1rem;
 }
 
 .link-grid {
@@ -190,7 +174,7 @@ footer {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem 1rem; /* Columnar feel */
 }
 
 .link-grid li {
@@ -199,22 +183,59 @@ footer {
 
 .link-grid a {
     display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background: #f0f4f8;
+    padding: 0.2rem 0;
+    background: transparent; /* Clean text links */
     color: var(--text-color);
-    border-radius: 4px;
-    font-size: 0.9rem;
+    border-radius: 0;
+    font-size: 1rem;
     font-weight: 500;
-    transition: all 0.2s;
+    border-bottom: 1px solid transparent;
 }
 
 .link-grid a:hover {
-    background: var(--accent-color);
-    color: #fff;
-    transform: translateY(-1px);
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+    background: transparent;
+    transform: none;
 }
 
-/* Detail Pages - Optimized Split */
+.composition-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.composition-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.composition-section p {
+    color: var(--muted-text);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+a.button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--text-color);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+a.button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(179, 137, 44, 0.3);
+}
+
+/* Detail Pages */
 .detail-container {
     display: grid;
     grid-template-columns: 35% 65%;
@@ -290,7 +311,6 @@ footer {
 }
 
 /* --- Curatorial Edition: Keyframes --- */
-/* (Animations retained from previous step) */
 @keyframes vibrate { 0% { transform: translate(0, 0); } 20% { transform: translate(-1px, 0); } 40% { transform: translate(1px, 0); } 60% { transform: translate(-1px, 0); } 80% { transform: translate(1px, 0); } 100% { transform: translate(0, 0); } }
 @keyframes drift { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(10px, -10px); } 50% { transform: translate(5px, 5px); } 75% { transform: translate(-10px, 10px); } }
 @keyframes lightShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
@@ -304,8 +324,8 @@ footer {
 @keyframes ghostTrail { 0% { transform: translateX(-150px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(150px); opacity: 0; } }
 @keyframes polyrhythm { 0%, 100% { height: 20px; opacity: 0.5; } 50% { height: 100px; opacity: 1; } }
 @keyframes gestalt { 0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0.5; } 50% { transform: translate(0, 0) rotate(0); opacity: 1; border-color: var(--accent-color); } }
-@keyframes chaosToOrder { 0% { transform: translate(-200px, -150px) scale(0.5); opacity: 0; } 20% { transform: translate(150px, 100px) scale(1.2); opacity: 1; border-radius: 0%; } 40% { transform: translate(-50px, 50px) rotate(45deg); border-radius: 50%; } 60% { transform: translate(0, 0) scale(1); border-radius: 50%; border-color: #fff; box-shadow: 0 0 40px var(--accent-color); } 80% { transform: translate(0, 0) scale(1); border-color: #fff; box-shadow: 0 0 60px var(--accent-color); } 100% { transform: translate(0, 0) scale(1); opacity: 0; } }
-@keyframes anchorSlide { 0% { transform: translate(200px, 0); opacity: 0; } 40% { transform: translate(50px, 0); opacity: 0.5; } 60% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; } 80% { transform: translate(0, 0); opacity: 1; width: 200px; height: 200px; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes thesisGrid { 0% { width: 0; height: 0; opacity: 0; transform: translate(-50%, -50%) rotate(0deg); } 10% { width: 200px; height: 200px; opacity: 1; transform: translate(-50%, -50%) rotate(0deg); } 30% { transform: translate(-50%, -50%) rotate(0deg); border-color: rgba(255,255,255,0.2); } 40% { transform: translate(-50%, -50%) rotate(0deg) scale(0.9); } 60% { transform: translate(-40%, -40%) rotate(15deg); border-color: rgba(255,255,255,0.6); } 80% { transform: translate(-40%, -40%) rotate(15deg); opacity: 1; } 90% { opacity: 0; transform: translate(-40%, -40%) rotate(15deg) scale(1.1); } 100% { opacity: 0; } }
+@keyframes antithesisShape { 0%, 25% { transform: translate(150px, 100px) scale(0); opacity: 0; } 35% { transform: translate(50px, 20px) scale(1); opacity: 1; } 60% { transform: translate(-20px, 20px) scale(1); } 80% { transform: translate(-20px, 20px) scale(1); opacity: 1; } 90% { transform: translate(-20px, 20px) scale(0); opacity: 0; } 100% { opacity: 0; } }
 
 /* --- The Elements --- */
 .element-line .demo-canvas { background: #061735; }
@@ -348,64 +368,10 @@ footer {
 .principle-unity .demo-canvas::before { var(--x): -40px; var(--y): -40px; var(--r): 15deg; animation: gestalt 5s ease-in-out infinite; }
 .principle-unity .demo-canvas::after { var(--x): 40px; var(--y): 40px; var(--r): -15deg; animation: gestalt 5s ease-in-out infinite; }
 
-/* --- The Synthesis: Composition (The Dialectic of Form) --- */
-.composition-composition .demo-canvas {
-    background: #061735;
-    position: relative;
-    /* Clean slate */
-}
-
-/* 1. The Thesis: The Grid (Logic) */
-.composition-composition .demo-canvas::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px; height: 200px;
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    border: 1px solid rgba(255,255,255,0.2);
-    animation: thesisGrid 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-/* 2. The Antithesis: The Disruptor (Instinct) */
-.composition-composition .demo-canvas::after {
-    content: '';
-    position: absolute;
-    width: 80px; height: 80px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    /* Start invisible */
-    opacity: 0;
-    box-shadow: 0 0 30px rgba(179, 137, 44, 0.4);
-    animation: antithesisShape 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-/* Animation Cycle: 12 Seconds */
-@keyframes thesisGrid {
-    0% { width: 0; height: 0; opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-    10% { width: 200px; height: 200px; opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-    30% { transform: translate(-50%, -50%) rotate(0deg); border-color: rgba(255,255,255,0.2); }
-    /* React to Antithesis */
-    40% { transform: translate(-50%, -50%) rotate(0deg) scale(0.9); }
-    60% { transform: translate(-40%, -40%) rotate(15deg); border-color: rgba(255,255,255,0.6); } /* Synthesis: Grid shifts to accommodate */
-    80% { transform: translate(-40%, -40%) rotate(15deg); opacity: 1; }
-    90% { opacity: 0; transform: translate(-40%, -40%) rotate(15deg) scale(1.1); }
-    100% { opacity: 0; }
-}
-
-@keyframes antithesisShape {
-    0%, 25% { transform: translate(150px, 100px) scale(0); opacity: 0; }
-    /* Disruption enters */
-    35% { transform: translate(50px, 20px) scale(1); opacity: 1; }
-    /* Synthesis Lock */
-    60% { transform: translate(-20px, 20px) scale(1); } /* Moves to Golden Ratio-ish spot relative to new grid */
-    80% { transform: translate(-20px, 20px) scale(1); opacity: 1; }
-    90% { transform: translate(-20px, 20px) scale(0); opacity: 0; }
-    100% { opacity: 0; }
-}
+/* --- The Synthesis: Composition --- */
+.composition-composition .demo-canvas { background: #061735; position: relative; }
+.composition-composition .demo-canvas::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px; border: 1px solid rgba(255,255,255,0.2); animation: thesisGrid 12s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+.composition-composition .demo-canvas::after { content: ''; position: absolute; width: 80px; height: 80px; background: var(--accent-color); border-radius: 50%; opacity: 0; box-shadow: 0 0 30px rgba(179, 137, 44, 0.4); animation: antithesisShape 12s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
 
 /* Responsive Adjustments */
 @media (max-width: 800px) {

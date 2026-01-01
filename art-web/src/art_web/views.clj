@@ -52,18 +52,18 @@
            [:h2 "Master the Basics"]
            [:p "Explore the building blocks of visual art."]
            [:div.grid-container
-            [:div.card
+            [:div.collection
              [:h3 "The Elements"]
              [:p "The tools to make art."]
              [:ul.link-grid (for [e elements] [:li [:a {:href (url (str "/element/" (:id e) ".html"))} (:title e)]])]]
-            [:div.card
+            [:div.collection
              [:h3 "The Principles"]
              [:p "How to use the tools."]
-             [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
-            [:div.card.composition-card
-             [:h3 "Composition"]
-             [:p "The Synthesis."]
-             [:ul.link-grid [:li [:a {:href (url "/composition.html")} "View the Masterpiece"]]]]]]))
+             [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]]
+           [:div.composition-section
+            [:h3 "Composition"]
+            [:p "The Synthesis."]
+            [:a.button {:href (url "/composition.html")} "View the Masterpiece"]]]))
 
 (defn detail-page [type id]
   (let [items (cond 
