@@ -1,0 +1,364 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+nav li {
+    margin: 5px 0;
+}
+
+nav span {
+    font-weight: bold;
+    color: #aaa;
+    margin-right: 10px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: 60vh;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #777;
+    font-size: 0.8rem;
+    border-top: 1px solid #ddd;
+    margin-top: 2rem;
+}
+
+/* Home Page */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.grid-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+.card h3 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Detail Pages */
+.detail-container h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.definition {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.visual-demo {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.demo-canvas {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border: 1px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.demo-content {
+    font-weight: bold;
+    color: #ccc;
+}
+
+/* Visualizations for Elements */
+
+/* Line: Animated SVG dasharray or just div styling */
+.element-line .demo-canvas {
+    background: linear-gradient(to right, transparent 50%, #333 50%);
+    background-size: 20px 100%; /* Vertical lines */
+}
+.element-line .demo-content { display: none; }
+
+
+/* Shape: Geometric vs Organic */
+.element-shape .demo-canvas {
+    background: #fff;
+}
+.element-shape .demo-canvas::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: #e74c3c;
+    position: absolute;
+    left: 20%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle */
+}
+.element-shape .demo-canvas::after {
+    content: '';
+    width: 120px;
+    height: 90px;
+    background: #3498db;
+    position: absolute;
+    right: 20%;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Blob */
+}
+.element-shape .demo-content { display: none; }
+
+
+/* Form: 3D illusion using shadow/gradient */
+.element-form .demo-canvas::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #fff, #999, #333);
+    border-radius: 50%; /* Sphere */
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+}
+.element-form .demo-content { display: none; }
+
+
+/* Color: Hue spectrum */
+.element-color .demo-canvas {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+.element-color .demo-content { display: none; }
+
+
+/* Texture: Pattern background */
+.element-texture .demo-canvas {
+    background-color: #dcb;
+    background-image: 
+        radial-gradient(#8b4000 15%, transparent 16%),
+        radial-gradient(#8b4000 15%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+.element-texture .demo-content { display: none; }
+
+
+/* Space: Perspective / Overlap */
+.element-space .demo-canvas {
+    perspective: 500px;
+}
+.element-space .demo-canvas::before {
+    content: '';
+    width: 100px; height: 100px;
+    background: #333;
+    transform: translateZ(0px);
+    position: absolute;
+    top: 50px; left: 50px;
+    z-index: 2;
+}
+.element-space .demo-canvas::after {
+    content: '';
+    width: 100px; height: 100px;
+    background: #999;
+    transform: translateZ(-100px) translateX(50px) translateY(-50px); /* Further away */
+    position: absolute;
+    top: 50px; left: 50px;
+    z-index: 1;
+}
+.element-space .demo-content { display: none; }
+
+
+/* Value: Grayscale */
+.element-value .demo-canvas {
+    background: linear-gradient(to right, white, black);
+}
+.element-value .demo-content { display: none; }
+
+
+/* Visualizations for Principles */
+
+/* Balance: Symmetrical */
+.principle-balance .demo-canvas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.principle-balance .demo-canvas::before, .principle-balance .demo-canvas::after {
+    content: '';
+    width: 80px; height: 80px;
+    background: #333;
+    border-radius: 50%;
+}
+.principle-balance .demo-content { display: none; }
+
+
+/* Contrast: Black/White, Large/Small */
+.principle-contrast .demo-canvas {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.principle-contrast .demo-canvas::before {
+    content: '';
+    width: 20px; height: 20px;
+    background: #fff;
+    border-radius: 50%;
+}
+.principle-contrast .demo-content { display: none; }
+
+
+/* Emphasis: One red dot among grey ones */
+.principle-emphasis .demo-canvas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 250px;
+}
+/* We can't easily loop in CSS pseudo-elements like this, let's use a background pattern approach 
+   or assume the view renders children. Since view is static, I'll use a hacky radial gradient grid 
+   and one div on top.
+*/
+.principle-emphasis .demo-canvas {
+    background-image: radial-gradient(circle, #ccc 30%, transparent 31%);
+    background-size: 50px 50px;
+}
+.principle-emphasis .demo-canvas::before {
+    content: '';
+    width: 30px; height: 30px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    /* Place it on one of the 'grid' spots */
+    top: 135px; left: calc(50% + 25px); 
+    box-shadow: 0 0 10px red;
+}
+.principle-emphasis .demo-content { display: none; }
+
+
+/* Movement: Lines guiding eye */
+.principle-movement .demo-canvas {
+    background: 
+        linear-gradient(45deg, transparent 40%, #333 40%, #333 60%, transparent 60%),
+        linear-gradient(45deg, transparent 40%, #333 40%, #333 60%, transparent 60%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px; /* Creates chevron/arrow like flow */
+}
+.principle-movement .demo-content { display: none; }
+
+
+/* Pattern: Repetition */
+.principle-pattern .demo-canvas {
+    background:
+        conic-gradient(#333 90deg, transparent 90deg);
+    background-size: 50px 50px;
+}
+.principle-pattern .demo-content { display: none; }
+
+
+/* Rhythm: Varying sizes/intervals */
+.principle-rhythm .demo-canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.principle-rhythm .demo-canvas::before {
+    content: '';
+    width: 20px; height: 20px; background: #333; border-radius: 50%;
+    box-shadow: 40px 0 0 -2px #333, 90px 0 0 2px #333, 150px 0 0 8px #333;
+}
+.principle-rhythm .demo-content { display: none; }
+
+
+/* Unity: Similar shapes/colors */
+.principle-unity .demo-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #f0f0f0;
+}
+.principle-unity .demo-canvas::before {
+    content: '';
+    width: 50px; height: 50px; background: #555; border-radius: 4px;
+}
+.principle-unity .demo-canvas::after {
+    content: '';
+    width: 50px; height: 50px; background: #555; border-radius: 4px;
+    transform: rotate(10deg);
+}
+.principle-unity .demo-content { display: none; }
