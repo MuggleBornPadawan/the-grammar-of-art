@@ -25,6 +25,31 @@
    {:id "rhythm" :title "Rhythm" :desc "Visual music. Unlike simple repetition, rhythm relies on syncopation and interval, creating a 'beat' that guides the eye through the composition."}
    {:id "unity" :title "Unity" :desc "The Gestalt moment. The fleeting instant where disparate chaotic elements align to form a coherent whole, proving the sum is greater than its parts."}])
 
+(def perception
+  [{:id "closure" :title "Closure" :desc "The mind’s tendency to complete incomplete shapes, filling in gaps to perceive a whole form rather than disjointed lines."}
+   {:id "proximity" :title "Proximity" :desc "The cognitive rule that objects placed close to one another are perceived as a related group or unit, overriding similarity."}
+   {:id "similarity" :title "Similarity" :desc "The perception that elements sharing characteristics (shape, color, size) belong together, creating implied layers or categories."}
+   {:id "figure-ground" :title "Figure-Ground" :desc "The fundamental distinction between the subject (figure) and the background (ground); playing with this creates ambiguity and interest."}
+   {:id "continuity" :title "Continuity" :desc "The eye's preference to follow a path, line, or curve beyond its ending point, linking separate elements into a single flow."}])
+
+(def structure
+  [{:id "golden-ratio" :title "Golden Ratio" :desc "A mathematical proportion (approx. 1:1.618) found in nature that yields aesthetically pleasing, organic balance when applied to layout."}
+   {:id "rule-of-thirds" :title "Rule of Thirds" :desc "A grid system dividing the image into nine parts; placing focal points at intersections creates more tension and energy than centering."}
+   {:id "hierarchy" :title "Hierarchy" :desc "The visual ordering of elements by importance, manipulated through scale, color weight, and position to guide the viewer’s decoding order."}
+   {:id "economy" :title "Economy" :desc "The principle of 'less is more'—omitting non-essential details to strengthen the impact of the subject."}
+   {:id "variety" :title "Variety" :desc "The necessary counterweight to Unity; introducing differences in scale, shape, or texture to prevent monotony and hold attention."}])
+
+(def spatial-depth
+  [{:id "linear-perspective" :title "Linear Perspective" :desc "The mathematical system using vanishing points and converging lines to create the illusion of depth and receding space."}
+   {:id "atmospheric-perspective" :title "Atmospheric Perspective" :desc "Creating depth by simulating the atmosphere; distant objects become lighter, cooler, and less detailed."}
+   {:id "foreshortening" :title "Foreshortening" :desc "The visual distortion of an object's dimensions when viewed at an angle, dramatically projecting it toward or away from the viewer."}
+   {:id "overlapping" :title "Overlapping" :desc "The simplest cue for depth; when one object partially obscures another, it is instantly perceived as being 'in front'."}])
+
+(def color-dynamics
+  [{:id "temperature" :title "Temperature" :desc "The psychological heat of a color. Warm colors tend to advance toward the viewer, while cool colors recede."}
+   {:id "saturation" :title "Saturation" :desc "The purity or intensity of a hue. High saturation demands attention, while desaturation implies distance or neutrality."}
+   {:id "simultaneous-contrast" :title "Simultaneous Contrast" :desc "The phenomenon where a color changes appearance based on the colors surrounding it."}])
+
 (def composition
   {:id "composition" :title "Composition" :desc "The Arrested Moment. Composition is not a formula; it is the freezing of dynamic forces in a state of precarious equilibrium. It is a confrontation between the rigid logic of geometry and the chaotic will of the artist, holding the viewer in the tension between these opposing powers."})
 
@@ -58,7 +83,23 @@
             [:div.collection
              [:h3 "The Principles"]
              [:p "How to use the tools."]
-             [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]]
+             [:ul.link-grid (for [p principles] [:li [:a {:href (url (str "/principle/" (:id p) ".html"))} (:title p)]])]]
+            [:div.collection
+             [:h3 "Perception"]
+             [:p "How we see."]
+             [:ul.link-grid (for [p perception] [:li [:a {:href (url (str "/perception/" (:id p) ".html"))} (:title p)]])]]
+            [:div.collection
+             [:h3 "Structure"]
+             [:p "The grid."]
+             [:ul.link-grid (for [s structure] [:li [:a {:href (url (str "/structure/" (:id s) ".html"))} (:title s)]])]]
+            [:div.collection
+             [:h3 "Spatial Depth"]
+             [:p "Simulating 3D."]
+             [:ul.link-grid (for [s spatial-depth] [:li [:a {:href (url (str "/spatial-depth/" (:id s) ".html"))} (:title s)]])]]
+            [:div.collection
+             [:h3 "Color Dynamics"]
+             [:p "Advanced theory."]
+             [:ul.link-grid (for [c color-dynamics] [:li [:a {:href (url (str "/color-dynamics/" (:id c) ".html"))} (:title c)]])]]]
            [:div.composition-section
             [:h3 "Composition"]
             [:p "The Synthesis."]
@@ -68,6 +109,10 @@
   (let [items (cond 
                 (= type "element") elements 
                 (= type "principle") principles
+                (= type "perception") perception
+                (= type "structure") structure
+                (= type "spatial-depth") spatial-depth
+                (= type "color-dynamics") color-dynamics
                 :else [composition])
         idx (first (keep-indexed #(when (= (:id %2) id) %1) items))
         item (nth items idx)

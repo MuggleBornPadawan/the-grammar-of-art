@@ -140,41 +140,114 @@ footer {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
     gap: 2rem; /* Reduced from 3rem */
-    max-width: 900px;
+    max-width: 1000px; /* Slightly wider for 3 cols */
     margin: 0 auto 1.5rem auto; /* Reduced bottom margin */
     text-align: left;
 }
 
-.collection h3 {
-    font-size: 1.25rem; /* Reduced from 1.5rem */
-    margin-bottom: 0.1rem;
-    color: var(--text-color);
-}
+/* --- Perception (Gestalt) --- */
+@keyframes spinClosure { 0% { transform: rotate(0deg); border-color: transparent; } 50% { border-color: var(--accent-color); } 100% { transform: rotate(360deg); border-color: transparent; } }
+.perception-closure .demo-canvas { background: #1a1a1a; }
+.perception-closure .demo-canvas::before { content: ''; width: 150px; height: 150px; border: 15px dashed var(--accent-color); border-radius: 50%; animation: spinClosure 11s linear infinite; }
 
-.collection p {
-    margin-bottom: 0.5rem; /* Reduced from 1rem */
-    font-size: 0.9rem; /* Reduced from 1rem */
-}
+@keyframes proximityGroup { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 0); } }
+.perception-proximity .demo-canvas { background: #222; }
+.perception-proximity .demo-canvas::before { content: ''; width: 10px; height: 10px; background: #fff; box-shadow: -20px 0 0 #fff, -20px 20px 0 #fff, 0 20px 0 #fff; position: absolute; left: 40%; animation: proximityGroup 7s ease-in-out infinite; }
+.perception-proximity .demo-canvas::after { content: ''; width: 10px; height: 10px; background: var(--accent-color); box-shadow: 20px 0 0 var(--accent-color), 20px 20px 0 var(--accent-color), 0 20px 0 var(--accent-color); position: absolute; right: 40%; animation: proximityGroup 7s ease-in-out infinite reverse; }
 
-.link-grid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.5rem; /* Tighter gap */
-}
+@keyframes similarityPulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+.perception-similarity .demo-canvas { background: #111; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); width: 200px; height: 200px; gap: 10px; }
+.perception-similarity .demo-canvas::before { content: ''; grid-area: 1 / 1 / 5 / 5; background-image: radial-gradient(circle, #333 4px, transparent 5px); background-size: 50px 50px; }
+.perception-similarity .demo-canvas::after { content: ''; position: absolute; width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; top: calc(50% - 20px); left: calc(50% - 20px); box-shadow: 50px 0 0 var(--accent-color), -50px 0 0 var(--accent-color); animation: similarityPulse 4s ease-in-out infinite; }
 
-.link-grid a {
-    display: inline-block;
-    padding: 0.1rem 0; /* Minimal padding */
-    background: transparent;
-    color: var(--text-color);
-    font-size: 0.95rem; /* Slightly smaller */
-    font-weight: 500;
-    border-bottom: 1px solid transparent;
+@keyframes figureGroundShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.perception-figure-ground .demo-canvas { background: linear-gradient(90deg, #fff 50%, #000 50%); background-size: 200% 100%; animation: figureGroundShift 8s ease-in-out infinite; }
+.perception-figure-ground .demo-canvas::before { content: ''; width: 100px; height: 150px; background: inherit; background-position: 100% 50%; border-radius: 50px; border: 4px solid var(--accent-color); mix-blend-mode: difference; }
+
+@keyframes continuityFlow { 0% { background-position: 0 0; } 100% { background-position: 100px 0; } }
+.perception-continuity .demo-canvas { background: #061735; }
+.perception-continuity .demo-canvas::before { content: ''; width: 100%; height: 50px; background: repeating-linear-gradient(90deg, var(--accent-color) 0, var(--accent-color) 10px, transparent 10px, transparent 40px); opacity: 0.8; transform: rotate(15deg); animation: continuityFlow 2s linear infinite; }
+
+/* --- Structure (The Grid) --- */
+@keyframes goldenSpiral { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(0.6); } 100% { transform: rotate(360deg) scale(1); } }
+.structure-golden-ratio .demo-canvas { background: #061735; overflow: hidden; }
+.structure-golden-ratio .demo-canvas::before { content: ''; width: 200px; height: 200px; border: 1px solid rgba(255,255,255,0.3); border-radius: 0 0 200px 0; position: absolute; top: 20%; left: 20%; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); transform-origin: 0 0; animation: goldenSpiral 19s linear infinite; }
+
+.structure-rule-of-thirds .demo-canvas { background: #061735; position: relative; }
+.structure-rule-of-thirds .demo-canvas::before { content: ''; position: absolute; width: 100%; height: 100%; background: linear-gradient(90deg, transparent 33%, rgba(255,255,255,0.2) 33%, rgba(255,255,255,0.2) 34%, transparent 34%, transparent 66%, rgba(255,255,255,0.2) 66%, rgba(255,255,255,0.2) 67%, transparent 67%), linear-gradient(0deg, transparent 33%, rgba(255,255,255,0.2) 33%, rgba(255,255,255,0.2) 34%, transparent 34%, transparent 66%, rgba(255,255,255,0.2) 66%, rgba(255,255,255,0.2) 67%, transparent 67%); }
+.structure-rule-of-thirds .demo-canvas::after { content: ''; width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; position: absolute; top: 33%; left: 66%; transform: translate(-50%, -50%); animation: colorBreath 3s ease-in-out infinite; }
+
+.structure-hierarchy .demo-canvas { background: #061735; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.structure-hierarchy .demo-canvas::before { content: ''; width: 120px; height: 120px; background: var(--accent-color); border-radius: 50%; }
+.structure-hierarchy .demo-canvas::after { content: ''; width: 60px; height: 60px; background: #4a5b7c; border-radius: 50%; box-shadow: 0 70px 0 -15px #2a3b5c, 0 110px 0 -22px #1a2b4c; }
+
+@keyframes economyFade { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.structure-economy .demo-canvas { background: #061735; }
+.structure-economy .demo-canvas::before { content: ''; width: 60px; height: 60px; border: 2px solid #fff; position: absolute; }
+.structure-economy .demo-canvas::after { content: ''; width: 200px; height: 200px; background-image: radial-gradient(#4a5b7c 2px, transparent 2px); background-size: 20px 20px; position: absolute; animation: economyFade 6s ease-in-out infinite; }
+
+@keyframes varietyDance { 0% { border-radius: 0; background: #4a5b7c; transform: rotate(0); } 33% { border-radius: 50%; background: var(--accent-color); } 66% { border-radius: 0; background: #fff; transform: rotate(180deg); } 100% { border-radius: 0; background: #4a5b7c; transform: rotate(360deg); } }
+.structure-variety .demo-canvas { background: #061735; }
+.structure-variety .demo-canvas::before { content: ''; width: 80px; height: 80px; animation: varietyDance 8s linear infinite; }
+
+/* --- Spatial Depth --- */
+@keyframes roadMove { 0% { background-position: 0 0; } 100% { background-position: 0 100px; } }
+.spatial-depth-linear-perspective .demo-canvas { background: #061735; perspective: 200px; overflow: hidden; }
+.spatial-depth-linear-perspective .demo-canvas::before { content: ''; position: absolute; width: 300%; left: -100%; height: 100%; background: linear-gradient(90deg, transparent 49%, var(--accent-color) 49%, var(--accent-color) 51%, transparent 51%), linear-gradient(0deg, transparent 49%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.2) 51%, transparent 51%); background-size: 100px 100px; transform: rotateX(60deg); transform-origin: 50% 100%; animation: roadMove 2s linear infinite; }
+
+@keyframes fogDrift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+.spatial-depth-atmospheric-perspective .demo-canvas { background: #d0dbe8; position: relative; overflow: hidden; }
+.spatial-depth-atmospheric-perspective .demo-canvas::before { content: ''; width: 150%; height: 100px; background: #8da1bf; border-radius: 50% 50% 0 0; position: absolute; bottom: 40px; left: -20px; animation: fogDrift 9s ease-in-out infinite alternate; }
+.spatial-depth-atmospheric-perspective .demo-canvas::after { content: ''; width: 150%; height: 80px; background: #061735; border-radius: 50% 50% 0 0; position: absolute; bottom: -20px; right: -20px; animation: fogDrift 7s ease-in-out infinite alternate-reverse; }
+
+@keyframes foreshortenTurn { 0% { transform: rotateX(0deg) scaleY(1); } 50% { transform: rotateX(75deg) scaleY(0.5); } 100% { transform: rotateX(0deg) scaleY(1); } }
+.spatial-depth-foreshortening .demo-canvas { background: #061735; perspective: 400px; }
+.spatial-depth-foreshortening .demo-canvas::before { content: ''; width: 80px; height: 150px; background: var(--accent-color); transform-origin: bottom center; animation: foreshortenTurn 5s ease-in-out infinite; }
+
+@keyframes zOrbit { 0% { transform: translateX(-50px) scale(0.8); z-index: 1; background: #333; } 25% { transform: translateX(0px) scale(0.6); z-index: 0; background: #222; } 50% { transform: translateX(50px) scale(0.8); z-index: 1; background: #333; } 75% { transform: translateX(0px) scale(1.1); z-index: 3; background: #fff; } 100% { transform: translateX(-50px) scale(0.8); z-index: 1; background: #333; } }
+.spatial-depth-overlapping .demo-canvas { background: #061735; }
+.spatial-depth-overlapping .demo-canvas::before { content: ''; width: 60px; height: 60px; border-radius: 50%; position: absolute; animation: zOrbit 6s linear infinite; }
+.spatial-depth-overlapping .demo-canvas::after { content: ''; width: 60px; height: 60px; background: var(--accent-color); border-radius: 50%; position: absolute; }
+
+/* --- Color Dynamics --- */
+@keyframes tempShift { 0%, 100% { left: 20%; background: #ff4500; } 50% { left: 80%; background: #1e90ff; } }
+.color-dynamics-temperature .demo-canvas { background: linear-gradient(90deg, #330000 0%, #000033 100%); position: relative; }
+.color-dynamics-temperature .demo-canvas::before { content: ''; width: 50px; height: 50px; border-radius: 50%; position: absolute; top: calc(50% - 25px); animation: tempShift 8s ease-in-out infinite; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+
+@keyframes saturationPulse { 0%, 100% { filter: grayscale(100%); transform: scale(0.9); } 50% { filter: grayscale(0%); transform: scale(1.1); } }
+.color-dynamics-saturation .demo-canvas { background: #111; }
+.color-dynamics-saturation .demo-canvas::before { content: ''; width: 100px; height: 100px; background: linear-gradient(45deg, #ff00cc, #3333ff); border-radius: 50%; animation: saturationPulse 4s ease-in-out infinite; }
+
+.color-dynamics-simultaneous-contrast .demo-canvas { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 100%; padding: 0; }
+.color-dynamics-simultaneous-contrast .demo-canvas::before { content: ''; background: #061735; display: flex; align-items: center; justify-content: center; border-right: 1px solid #fff; }
+.color-dynamics-simultaneous-contrast .demo-canvas::after { content: ''; background: #B3892C; display: flex; align-items: center; justify-content: center; }
+/* Using a child element for the grey square trick would be ideal, but with pseudo-elements only, we use box-shadow/inset tricks or gradients. 
+   Here, we'll use a background image gradient on the main container to create the 'squares' inside the pseudo-elements. */
+.color-dynamics-simultaneous-contrast .demo-canvas { 
+    background: transparent; 
+}
+/* Re-implementing correctly for pseudo-element limitation: */
+.color-dynamics-simultaneous-contrast .demo-canvas {
+    background: linear-gradient(90deg, #061735 50%, #B3892C 50%);
+    position: relative;
+}
+.color-dynamics-simultaneous-contrast .demo-canvas::before {
+    content: '';
+    position: absolute;
+    width: 40px; height: 40px;
+    background: #7f7f7f;
+    top: calc(50% - 20px);
+    left: 25%;
+}
+.color-dynamics-simultaneous-contrast .demo-canvas::after {
+    content: '';
+    position: absolute;
+    width: 40px; height: 40px;
+    background: #7f7f7f;
+    top: calc(50% - 20px);
+    left: 70%; /* Adjusted from 75% for visual balance */
 }
 
 .composition-section {
@@ -354,6 +427,11 @@ a.button {
 @media (max-width: 800px) {
     body { height: auto; overflow-x: auto; }
     .detail-container { grid-template-columns: 1fr; gap: 2rem; }
+    
+    /* Mobile Typography Scale */
+    .detail-container h2 { font-size: 2.5rem; }
+    .definition { font-size: 1.1rem; }
+
     header { flex-direction: column; padding: 1rem; }
     nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .grid-container { grid-template-columns: 1fr; }

@@ -27,6 +27,26 @@
     (write-page (str "principle/" (:id p) ".html") 
                 (views/detail-page "principle" (:id p))))
 
+  ;; Generate Perception
+  (doseq [p views/perception]
+    (write-page (str "perception/" (:id p) ".html") 
+                (views/detail-page "perception" (:id p))))
+
+  ;; Generate Structure
+  (doseq [s views/structure]
+    (write-page (str "structure/" (:id s) ".html") 
+                (views/detail-page "structure" (:id s))))
+
+  ;; Generate Spatial Depth
+  (doseq [s views/spatial-depth]
+    (write-page (str "spatial-depth/" (:id s) ".html") 
+                (views/detail-page "spatial-depth" (:id s))))
+
+  ;; Generate Color Dynamics
+  (doseq [c views/color-dynamics]
+    (write-page (str "color-dynamics/" (:id c) ".html") 
+                (views/detail-page "color-dynamics" (:id c))))
+
   ;; Generate Composition
   (write-page "composition.html" (views/detail-page "composition" "composition"))
 
