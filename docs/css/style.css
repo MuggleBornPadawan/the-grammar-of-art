@@ -1,15 +1,18 @@
 :root {
-    --bg-color: #061735;      /* Dark and Deep Blue */
-    --card-bg: #091f45;       /* Slightly lighter blue for contrast */
-    --text-color: #e6e6e6;    /* Off-white for readability */
-    --accent-color: #B3892C;  /* Gold */
-    --border-color: #B3892C;  /* Gold borders */
+    /* "Modern Gallery" Theme: Light base for readability, Deep Blue text, Gold accents */
+    --bg-color: #fdfdfd;       /* Soft White */
+    --card-bg: #ffffff;        /* Pure White */
+    --text-color: #061735;     /* Deep Blue as primary text (High Contrast) */
+    --muted-text: #4a5b7c;     /* Lighter blue-grey for secondary text */
+    --accent-color: #B3892C;   /* Gold for interactive elements */
+    --border-color: #e2e8f0;   /* Light grey for structure */
     
-    --font-mono: 'Courier New', Courier, monospace;
-    --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-serif: 'Merriweather', 'Georgia', serif;
+    --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     
-    --border-width: 1px;
-    --shadow-offset: 4px;
+    --border-radius: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 }
 
 body {
@@ -18,408 +21,409 @@ body {
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
-    
-    /* Subtle Gold Grid */
-    background-image: 
-        linear-gradient(rgba(179, 137, 44, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(179, 137, 44, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
+    line-height: 1.8; /* Increased for readability */
+    font-size: 18px;  /* Larger base font */
 }
 
-/* Typography Overrides */
-h1, h2, h3, nav {
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent-color);
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+h1 {
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--muted-text); /* Softer on the eyes than pure black/blue */
 }
 
 a {
     color: var(--accent-color);
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    border-bottom: 2px solid transparent;
 }
 
 a:hover {
-    color: #fff;
-    text-shadow: 0 0 5px var(--accent-color);
+    color: #061735;
+    border-bottom-color: var(--accent-color);
 }
 
-/* Header & Nav */
+/* Layout - Header */
 header {
-    background: #041025; /* Very dark blue */
-    border-bottom: 2px solid var(--accent-color);
-    padding: 2rem 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     image-rendering: pixelated;
-    border: 1px solid var(--accent-color);
-    padding: 5px;
-    background: transparent;
-    filter: invert(53%) sepia(35%) saturate(842%) hue-rotate(6deg) brightness(95%) contrast(89%); /* Approx Gold Filter */
-    box-shadow: 0 0 10px rgba(179, 137, 44, 0.3);
+    /* Use CSS filter to turn the black/white glider into Deep Blue */
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.7) contrast(2); 
 }
 
 header h1 a {
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--accent-color);
+    font-size: 2rem;
+    color: var(--text-color);
+    text-transform: none; /* Sentence case is more readable */
+    font-family: var(--font-serif);
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 nav li {
-    border: 1px solid var(--accent-color);
-    padding: 0.4rem 1rem;
-    background: rgba(6, 23, 53, 0.8);
+    display: flex;
+    align-items: center;
 }
 
 nav span {
-    font-weight: normal;
-    color: #889bbd;
-    margin-right: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--accent-color);
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 0.5rem;
 }
 
 nav a {
-    color: #fff;
-    font-weight: normal;
-    font-size: 0.9rem;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
-/* Main Layout */
+nav a:hover {
+    color: var(--text-color);
+}
+
+/* Layout - Main */
 main {
-    max-width: 960px;
-    margin: 3rem auto;
-    padding: 2rem;
-    min-height: 60vh;
+    max-width: 800px; /* Narrower column for optimal reading length */
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 80vh;
 }
 
 footer {
     text-align: center;
-    padding: 2rem 0;
-    color: #5d6f8e;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    border-top: 1px solid #1c2e4a;
-    margin-top: 4rem;
+    padding: 3rem 0;
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    background: #fff;
 }
 
 /* Home Page */
 .hero {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .hero h2 {
-    font-size: 3rem;
-    margin: 0 0 1rem 0;
-    border-bottom: 1px solid #1c2e4a;
-    display: inline-block;
-    padding-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: #889bbd;
-    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--muted-text);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
 }
 
 .card {
     background: var(--card-bg);
-    padding: 2rem;
-    border: 1px solid var(--accent-color);
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    position: relative;
-    overflow: hidden;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Gold corner accent for cards */
-.card::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    border-width: 0 30px 30px 0;
-    border-style: solid;
-    border-color: transparent var(--accent-color) transparent transparent;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
 }
 
 .card h3 {
-    border-bottom: 1px solid #1c2e4a;
-    padding-bottom: 0.5rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
-    color: #fff;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
 .card ul {
     list-style: none;
     padding: 0;
+    margin-top: 1rem;
 }
 
 .card li {
-    margin-bottom: 0.5rem;
-    font-family: var(--font-mono);
-    border-bottom: 1px solid #0f2444;
-    padding-bottom: 0.2rem;
+    margin-bottom: 0.75rem;
 }
 
 .card a {
-    color: var(--accent-color);
+    color: var(--text-color);
+    font-weight: 500;
 }
 
 .card a:hover {
-    padding-left: 5px;
+    color: var(--accent-color);
 }
 
 /* Detail Pages */
 .detail-container h2 {
-    font-size: 3.5rem;
-    margin: 0 0 1rem 0;
-    color: var(--accent-color);
-    text-shadow: 0 0 10px rgba(179, 137, 44, 0.2);
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
 }
 
 .definition {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--muted-text);
     line-height: 1.6;
-    color: #cbd5e1;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     border-left: 4px solid var(--accent-color);
-    padding-left: 1.5rem;
-    background: linear-gradient(90deg, rgba(179, 137, 44, 0.1), transparent);
-    padding: 1rem 1.5rem;
+    padding-left: 2rem;
 }
 
 .visual-demo {
-    border: 1px solid var(--accent-color);
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem; /* Frame effect */
     margin-bottom: 3rem;
-    background: #041025;
-    position: relative;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 .demo-canvas {
     width: 100%;
-    height: 400px;
-    position: relative;
+    height: 450px;
+    background: #fff;
+    border: 1px solid #eee;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+    /* Soft shadow inside the frame */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
 }
 
 .navigation a {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: transparent;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: var(--text-color);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
 }
 
 .navigation a:hover {
     background: var(--accent-color);
-    color: var(--bg-color);
+    border-bottom: none;
+    transform: translateY(-2px);
 }
 
 
-/* --- CSS Art Implementations (Gold & Blue Theme) --- */
+/* --- CSS Art (Adapted for Light Mode) --- */
 
-/* Line: Gold threads on Blue */
+/* Line: Deep Blue on White */
 .element-line .demo-canvas {
     background-image: 
-        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--accent-color) 50px),
-        linear-gradient(0deg, transparent 49%, var(--accent-color) 50%, transparent 51%);
-    background-size: 50px 100%, 100% 100px;
-    /* Animated shine effect via opacity or position is complex, keeping static elegance */
+        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--text-color) 50px),
+        linear-gradient(0deg, transparent 49%, var(--text-color) 50%, transparent 51%);
+    background-size: 50px 100%, 100% 2px; /* Thinner horizontal line */
 }
 
-/* Shape: Gold Geometry */
+/* Shape: Gold Triangle, Blue Circle */
 .element-shape .demo-canvas::before {
     content: '';
     position: absolute;
-    width: 100px; height: 100px;
-    border: 2px solid var(--accent-color);
-    transform: rotate(45deg);
-    left: 30%;
+    width: 0; height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid var(--accent-color);
+    left: 25%;
 }
 .element-shape .demo-canvas::after {
     content: '';
     position: absolute;
-    width: 100px; height: 100px;
-    background: var(--accent-color);
+    width: 120px; height: 120px;
+    background: var(--text-color);
     border-radius: 50%;
-    right: 30%;
-    box-shadow: 0 0 20px var(--accent-color);
+    right: 25%;
+    mix-blend-mode: multiply; /* Nice blend effect on white */
+    opacity: 0.8;
 }
 
-/* Form: 3D Gold Sphere */
+/* Form: Gradient Sphere */
 .element-form .demo-canvas::before {
     content: '';
-    width: 120px; height: 120px;
+    width: 140px; height: 140px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #fff, var(--accent-color), #3e2b05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    background: radial-gradient(circle at 30% 30%, #fff, var(--text-color));
+    box-shadow: 0 20px 40px rgba(6, 23, 53, 0.4);
 }
 
-/* Color: Shades of Gold & Blue */
+/* Color: Gold, Blue, and Mix */
 .element-color .demo-canvas {
-    background: linear-gradient(to right, 
-        #061735, 
-        #1c3a6e,
-        #B3892C,
-        #fceeb5);
+    background: linear-gradient(to right, #fff 0%, #fff 10%, var(--accent-color) 10%, var(--accent-color) 50%, var(--text-color) 50%, var(--text-color) 90%, #fff 90%);
 }
 
-/* Texture: Gold Dust */
+/* Texture: Dot Pattern */
 .element-texture .demo-canvas {
-    background-color: var(--bg-color);
-    background-image: radial-gradient(var(--accent-color) 1px, transparent 1px);
-    background-size: 10px 10px;
+    background-color: #fff;
+    background-image: radial-gradient(var(--muted-text) 1.5px, transparent 1.5px);
+    background-size: 15px 15px;
 }
 
-/* Space: Deep Space Perspective */
+/* Space: Perspective Grid */
 .element-space .demo-canvas {
-    perspective: 500px;
-    background: radial-gradient(circle at center, #0a2351 0%, #061735 100%);
+    perspective: 600px;
+    background: 
+        linear-gradient(rgba(6,23,53,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6,23,53,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 .element-space .demo-canvas::before {
-    content: ''; width: 80px; height: 80px;
-    border: 2px solid var(--accent-color);
-    transform: translateZ(50px);
-    position: absolute;
-    box-shadow: 0 0 15px var(--accent-color);
+    content: ''; width: 80px; height: 80px; background: var(--text-color);
+    position: absolute; top: 100px; left: 30%; z-index: 2;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
 }
 .element-space .demo-canvas::after {
-    content: ''; width: 80px; height: 80px;
-    background: rgba(179, 137, 44, 0.2);
-    transform: translateZ(-100px);
-    position: absolute;
-    border: 1px dashed var(--accent-color);
+    content: ''; width: 80px; height: 80px; background: var(--accent-color);
+    position: absolute; top: 80px; right: 30%; z-index: 1;
+    transform: translateZ(-150px);
+    opacity: 0.7;
 }
 
-/* Value: Gradient Scale */
+/* Value: Grayscale Scale */
 .element-value .demo-canvas {
-    background: linear-gradient(to right, #000, var(--bg-color), var(--accent-color), #fff);
+    background: linear-gradient(to right, #ffffff, #000000);
 }
 
 
 /* Principles */
 
-/* Balance: Gold & Blue Symmetrical */
+/* Balance: Symmetrical weights */
 .principle-balance .demo-canvas {
-    display: flex; justify-content: center; gap: 4rem;
+    display: flex; justify-content: center; align-items: center; gap: 60px;
 }
 .principle-balance .demo-canvas::before {
-    content: ''; width: 60px; height: 60px; border: 2px solid var(--accent-color);
+    content: ''; width: 60px; height: 60px; background: var(--text-color); border-radius: 50%;
 }
 .principle-balance .demo-canvas::after {
-    content: ''; width: 60px; height: 60px; background: var(--accent-color);
+    content: ''; width: 60px; height: 60px; background: var(--text-color); border-radius: 50%;
 }
 
-/* Contrast: Bright Gold on Dark Blue */
+/* Contrast: Small Gold vs Large Dark */
 .principle-contrast .demo-canvas {
-    background: var(--bg-color);
     display: flex; align-items: center; justify-content: center;
 }
 .principle-contrast .demo-canvas::before {
-    content: ''; width: 50px; height: 50px; background: #fff;
-    box-shadow: 0 0 0 50px #000, 0 0 0 52px var(--accent-color);
+    content: ''; width: 200px; height: 200px; background: var(--text-color); border-radius: 8px;
+    position: absolute;
+}
+.principle-contrast .demo-canvas::after {
+    content: ''; width: 50px; height: 50px; background: var(--accent-color); border-radius: 50%;
+    position: absolute; z-index: 2;
+    box-shadow: 0 0 0 10px #fff;
 }
 
-/* Emphasis: The Golden Focus */
+/* Emphasis: Breaking the pattern */
 .principle-emphasis .demo-canvas {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; width: 300px;
-}
-.principle-emphasis .demo-canvas {
-    background-image: radial-gradient(#1c3a6e 4px, transparent 4px);
-    background-size: 50px 50px;
+    background-image: radial-gradient(#ccc 2px, transparent 2px);
+    background-size: 30px 30px;
 }
 .principle-emphasis .demo-canvas::before {
-    content: ''; width: 30px; height: 30px; background: var(--accent-color);
-    position: absolute; top: 40%; left: 60%;
-    box-shadow: 0 0 25px var(--accent-color), 0 0 50px var(--accent-color);
+    content: ''; width: 40px; height: 40px; background: var(--accent-color);
+    border-radius: 50%; position: absolute; top: 40%; left: 60%;
+    box-shadow: 0 0 20px rgba(179, 137, 44, 0.6);
 }
 
-/* Movement: Gold Stream */
+/* Movement: Dashed Line */
 .principle-movement .demo-canvas {
-    background: repeating-linear-gradient(45deg, 
-        transparent, 
-        transparent 10px, 
-        rgba(179, 137, 44, 0.1) 10px, 
-        rgba(179, 137, 44, 0.1) 20px);
+    background: repeating-linear-gradient(45deg, #fff, #fff 20px, rgba(6,23,53,0.1) 20px, rgba(6,23,53,0.1) 40px);
 }
 .principle-movement .demo-canvas::before {
-    content: ''; width: 10px; height: 10px; background: var(--accent-color); border-radius: 50%;
-    box-shadow: 20px 20px 0 rgba(179, 137, 44, 0.8), 40px 40px 0 rgba(179, 137, 44, 0.6), 60px 60px 0 rgba(179, 137, 44, 0.4);
+    content: '→'; font-size: 8rem; color: var(--text-color); font-family: var(--font-sans);
 }
 
-/* Pattern: Glider Tinted */
+/* Pattern: Glider Tiling (Subtle) */
 .principle-pattern .demo-canvas {
     background-image: url('../img/glider.png');
-    background-size: 40px 40px;
+    background-size: 50px 50px;
     image-rendering: pixelated;
-    /* Tinting the image using filters */
-    filter: invert(53%) sepia(35%) saturate(842%) hue-rotate(6deg) brightness(95%) contrast(89%);
-    opacity: 0.5;
+    opacity: 0.1; /* Very subtle background texture */
 }
 
-/* Rhythm: Pulse */
+/* Rhythm: Bouncing */
 .principle-rhythm .demo-canvas {
-    display: flex; align-items: center; justify-content: center; gap: 15px;
+    display: flex; align-items: flex-end; justify-content: center; gap: 20px; height: 200px;
 }
-.principle-rhythm .demo-canvas div { /* Assuming future expansion, but using pseudo for now */ }
 .principle-rhythm .demo-canvas::before {
-    content: ''; width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%;
-    box-shadow: 
-        40px 0 0 -2px var(--accent-color),
-        90px 0 0 -5px var(--accent-color),
-        150px 0 0 -8px var(--accent-color);
+    content: ''; width: 30px; height: 30px; background: var(--text-color); border-radius: 50%;
+    box-shadow: 50px -40px 0 0 var(--text-color), 100px -10px 0 0 var(--text-color), 150px -60px 0 0 var(--text-color);
 }
 
-/* Unity: Consistent Geometry */
+/* Unity: Grouping */
 .principle-unity .demo-canvas {
-    display: flex; gap: 10px; justify-content: center; align-items: center;
-    border: 1px solid #1c2e4a;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 140px;
 }
-.principle-unity .demo-canvas::before, .principle-unity .demo-canvas::after {
-    content: ''; width: 40px; height: 40px; border: 2px solid var(--accent-color);
+.principle-unity .demo-canvas::before,
+.principle-unity .demo-canvas::after {
+    content: ''; width: 60px; height: 60px; background: var(--muted-text); border-radius: 4px;
+}
+/* We need 4 items, let's use box-shadow to simulate more */
+.principle-unity .demo-canvas::before {
+    box-shadow: 0 75px 0 var(--muted-text);
 }
 .principle-unity .demo-canvas::after {
-    background: rgba(179, 137, 44, 0.2);
+    box-shadow: 0 75px 0 var(--accent-color); /* One accent to unify/contrast */
+    background: var(--muted-text);
 }
