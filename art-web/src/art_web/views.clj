@@ -8,22 +8,22 @@
   (str *base-url* path))
 
 (def elements
-  [{:id "line" :title "Line" :desc "A point moving in space. Line can vary in width, length, curvature, color, or direction."}
-   {:id "shape" :title "Shape" :desc "A two-dimensional area or plane that may be open or closed, free-form or geometric. It is found in nature or is made by humans."}
-   {:id "form" :title "Form" :desc "A three-dimensional volume or the illusion of three dimensions; related to shape (which is 2D)."}
-   {:id "color" :title "Color" :desc "The visual sensation dependent on the reflection or absorption of light from a given surface."}
-   {:id "texture" :title "Texture" :desc "The surface quality of materials, either actual (tactile) or implied (visual)."}
-   {:id "space" :title "Space" :desc "The emptiness or area between, around, above, below, or contained within objects."}
-   {:id "value" :title "Value" :desc "Lightness or darkness of a hue or neutral color."}])
+  [{:id "line" :title "Line" :desc "More than a path between points; it is the division of space. A line vibrates with tension, defining boundaries and suggesting trajectory within the picture plane."}
+   {:id "shape" :title "Shape" :desc "The fundamental unit of composition. Shapes act not merely as outlines, but as fields of influence that define negative space and interact with neighboring forms."}
+   {:id "form" :title "Form" :desc "The illusion of volume on a flat surface. Through the manipulation of light and shadow (chiaroscuro), form creates a perceptual ambiguity between the 2D plane and 3D space."}
+   {:id "color" :title "Color" :desc "The most relative medium in art. Color creates mood and depth not through absolute hue, but through the interaction and vibration of adjacent chromatic fields."}
+   {:id "texture" :title "Texture" :desc "The tactile quality of a surface, whether physical or implied. In the digital realm, texture arises from optical interference and the density of information."}
+   {:id "space" :title "Space" :desc "Not emptiness, but volume. 'Ma' (negative space) is an active participant in composition, pushing against positive forms to create balance and breath."}
+   {:id "value" :title "Value" :desc "The architecture of light. Independent of color, value establishes the dramatic structure of a piece, revealing geometry through the gradation of luminosity."}])
 
 (def principles
-  [{:id "balance" :title "Balance" :desc "The arrangement of parts so that they reach a state of equilibrium."}
-   {:id "contrast" :title "Contrast" :desc "The arrangement of opposite elements (light vs. dark colors, rough vs. smooth textures, large vs. small shapes) in a piece."}
-   {:id "emphasis" :title "Emphasis" :desc "Used to make certain parts of an artwork stand out. It creates the center of interest or focal point."}
-   {:id "movement" :title "Movement" :desc "How the eye moves through the composition; leading the attention of the viewer from one aspect of the work to another."}
-   {:id "pattern" :title "Pattern" :desc "The repetition of specific visual elements such as a unit of shape or form."}
-   {:id "rhythm" :title "Rhythm" :desc "A principle of design that indicates movement, created by the careful placement of repeated elements."}
-   {:id "unity" :title "Unity" :desc "The relationship among the elements of a visual that helps all the elements function together. Unity gives a sense of oneness to a visual image."}])
+  [{:id "balance" :title "Balance" :desc "The equilibrium of opposing visual forces. It is the asymmetrical tension where a massive static form is counterweighted by a small, dynamic element."}
+   {:id "contrast" :title "Contrast" :desc "The interplay of opposites—clarity vs. obscurity, geometric vs. organic. High contrast creates drama; low contrast creates mystery."}
+   {:id "emphasis" :title "Emphasis" :desc "The disruption of pattern. The eye is inevitably drawn to the anomaly—the stillness in chaos, or the single deviation in a field of uniformity."}
+   {:id "movement" :title "Movement" :desc "The capture of time in a static medium. Through rhythm and line, the artist dictates the viewer's optical journey across the canvas."}
+   {:id "pattern" :title "Pattern" :desc "Emergence from rules. Pattern is the predictable repetition that allows the viewer to anticipate continuity, creating a comforting or hypnotic visual structure."}
+   {:id "rhythm" :title "Rhythm" :desc "Visual music. Unlike simple repetition, rhythm relies on syncopation and interval, creating a 'beat' that guides the eye through the composition."}
+   {:id "unity" :title "Unity" :desc "The Gestalt moment. The fleeting instant where disparate chaotic elements align to form a coherent whole, proving the sum is greater than its parts."}])
 
 (defn layout [title & content]
   (html5
